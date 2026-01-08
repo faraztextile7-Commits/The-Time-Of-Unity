@@ -1,0 +1,2451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Hyde</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="shortcut icon" href="https://i.pinimg.com/736x/1d/15/5b/1d155b07cb2ad9daf581f5f559f7ac4a.jpg"
+        type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 50px;
+
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .right-side {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        /* --- Social Icons Lift Hover Effect --- */
+        .social-icons i {
+            margin: 0 6px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: transform 0.25s ease, color 0.25s ease;
+        }
+
+        .social-icons i:hover {
+            transform: scale(1.30);
+        }
+
+        /* --- Search Arrow Button Hover Effect --- */
+        .search-box button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: none;
+            border: none;
+            height: 100%;
+            padding: 0 12px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.25s ease, color 0.25s ease;
+        }
+
+        .search-box button:hover {
+            transform: translateY(-5px);
+            color: #333;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding: 10px 15px;
+            width: 260px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .search-box button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: none;
+            border: none;
+            height: 100%;
+            padding: 0 12px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            font-family: a;
+            display: flex;
+            align-items: center;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 0px 40px;
+            gap: 25px;
+            font-size: 16px;
+            font-weight: bold;
+
+
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #000000;
+            padding: 10px 10px;
+            border-radius: 4px;
+            font-size: 18px;
+            transition: 0.2s;
+            /* Smooth effect */
+        }
+
+        /* light mode ka liya */
+        .navbar {
+            background: #ffffff !important;
+            color: #000 !important;
+            /* dark mode ka */
+
+        }
+
+        .dark .navbar,
+        .dark .navbar * {
+            background-color: #000 !important;
+            color: #fff !important;
+        }
+
+        .navbar {
+            transition: top 0.35s ease-in-out;
+            z-index: 9999;
+        }
+
+        /* Dark mode navbar fix */
+        .dark .navbar {
+            background: #000 !important;
+            color: #fff !important;
+        }
+
+        .dark .navbar a {
+            background: transparent !important;
+            color: #fff !important;
+        }
+
+        .dark .navbar a:hover,
+        .dark .navbar a.active {
+            background: #222 !important;
+        }
+
+        /* Scroll hide/show smooth fix */
+        .navbar {
+            transition: top 0.3s ease-in-out;
+            z-index: 9999;
+        }
+
+
+
+
+        .navbar a.active {
+            background: #ebe8e8;
+            border-radius: 4px;
+        }
+
+        /* 🔥 Hover effect same as active tab */
+        .navbar a:hover {
+            background: #ebe8e8;
+            border-radius: 4px;
+        }
+
+        .theme-btn {
+            margin-left: auto;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        /* Theme button icon ke liye smooth transition */
+        .theme-btn i {
+            transition: transform 0.3s ease, color 0.3s ease;
+            font-size: 20px;
+        }
+
+        /* Optional: click par thoda rotate effect */
+        .theme-btn i.rotate {
+            transform: rotate(360deg);
+        }
+
+
+        /* 🔥 FULL PAGE PURE DARK MODE FIX — NO GREY, ONLY BLACK BACKGROUND + WHITE TEXT */
+
+        /* Whole page background */
+        .dark {
+            background: #000 !important;
+            color: #fff !important;
+        }
+
+        /* All sections, wrappers */
+        .dark * {
+            background-color: transparent !important;
+            color: #fff !important;
+        }
+
+        /* 🔥 FIX — Dark Mode me Text Neche White Line Remove */
+        .dark h1,
+        .dark h2,
+        .dark h3,
+        .dark p,
+        .dark a,
+        .dark span {
+            text-decoration: none !important;
+        }
+
+        /* Hover par hi sirf apka yellow underline aaye */
+        .dark h1:hover,
+        .dark h2:hover,
+        .dark h3:hover,
+        .dark a:hover {
+            text-decoration: underline !important;
+            text-decoration-color: rgb(255, 173, 51) !important;
+        }
+
+        /* 🔥 Thick Yellow Underline on Hover (5px) */
+
+        .card h3:hover,
+        .card-two h3:hover,
+        .home-card h1:hover,
+        .second-card h2:hover,
+        .third-card h2:hover {
+            text-decoration: underline !important;
+            text-decoration-color: rgb(255, 173, 51) !important;
+            text-decoration-thickness: 5px !important;
+        }
+
+        /* Dark mode ke hover ke liye bhi same effect */
+        .dark h1:hover,
+        .dark h2:hover,
+        .dark h3:hover {
+            text-decoration-thickness: 5px !important;
+        }
+
+
+        /* Advertisement box should stay fully white */
+        .dark .ad-section {
+            background: #fff !important;
+            color: #000 !important;
+            border-bottom: none !important;
+        }
+
+
+        /* Advertisement box white (as you required earlier) */
+        .dark .ad-section {
+            background: #fff !important;
+            color: #000 !important;
+        }
+
+        /* Search Box */
+        .dark .search-box input {
+            background: #111 !important;
+            border: 1px solid #444 !important;
+            color: #fff !important;
+        }
+
+        .dark .search-box button i {
+            color: #fff !important;
+        }
+
+        /* Navbar */
+        .dark .navbar {
+            background: #000 !important;
+            border-color: #333 !important;
+        }
+
+        .dark .navbar a {
+            color: #fff !important;
+        }
+
+        .dark .navbar a:hover,
+        .dark .navbar a.active {
+            background: #222 !important;
+        }
+
+        /* Social Icons */
+        .dark .social-icons i {
+            color: #fff !important;
+        }
+
+        /* HOME CARDS (HEADLINES main cards) */
+        .dark .home-card,
+        .dark .second-card,
+        .dark .third-card {
+            background: #000 !important;
+            color: #fff !important;
+        }
+
+        .dark .home-card h1,
+        .dark .second-card h2,
+        .dark .third-card h2 {
+            color: #fff !important;
+        }
+
+        .dark .home-card p,
+        .dark .second-card p,
+        .dark .third-card p {
+            color: #ddd !important;
+        }
+
+        /* IMAGES dim effect */
+        .dark img {
+            filter: brightness(0.85);
+        }
+
+        /* POLITICS CARDS (class = card) */
+        .dark .card {
+            background: #000 !important;
+            border-color: #333 !important;
+        }
+
+        .dark .card h3 {
+            color: #fff !important;
+        }
+
+        .dark .card p {
+            color: #ccc !important;
+        }
+
+        .dark .card .meta {
+            color: #aaa !important;
+        }
+
+        /* BUSINESS CARDS (class = card-two) */
+        .dark .card-two {
+            background: #000 !important;
+            border-color: #333 !important;
+        }
+
+        .dark .card-two h3 {
+            color: #fff !important;
+        }
+
+        .dark .card-two p {
+            color: #ccc !important;
+        }
+
+        .dark .card-two .meta {
+            color: #aaa !important;
+        }
+
+        /* Section Headings Like: Headlines, Politics, Business */
+        .dark section h3,
+        .dark .duniya,
+        .dark .Jannat {
+            background: #000 !important;
+            color: #fff !important;
+        }
+
+        .dark section h3::after,
+        .dark .duniya::after,
+        .dark .Jannat::after {
+            background: #333 !important;
+        }
+
+        /* FOOTER */
+        .dark footer {
+            background: #000 !important;
+            border-color: #333 !important;
+            color: #fff !important;
+        }
+
+        .dark footer * {
+            color: #fff !important;
+        }
+
+        .dark .footer-link:hover {
+            color: #ffae41 !important;
+        }
+
+        /* Footer Social Icons */
+        .dark footer i {
+            color: #fff !important;
+        }
+
+        /* Footer border left */
+        .dark footer h3 {
+            border-left-color: #fff !important;
+        }
+
+
+
+        /* toogle theme ka liya wala button */
+        .ad-section {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+
+        .discover-section {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .discover-section button {
+            padding: 8px 18px;
+            margin: 5px;
+            background: #f7f7f7;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        /* Logo CSS - Professional and classic logo styling */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: black;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .logo img {
+            width: 80px;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        .home-card img {
+            height: 300px;
+            width: 520px;
+            margin-left: 50px;
+            color: #000000;
+            border-radius: 5px;
+        }
+
+        .home-card p {
+            line-height: 20px;
+            margin: 50px;
+            width: 500px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .home-card h1 {
+            margin: 50px;
+            width: 500px;
+            font-family: a;
+            font-size: 35px;
+            transition: 0.3s ease;
+            text-decoration: underline 5px white;
+            transition: all 0.3s;
+        }
+
+        .home-card h1:hover {
+            text-decoration-color: rgb(255, 173, 51);
+            transition: transform 0.3s ease;
+
+        }
+
+        .second-card {
+            line-height: 20px;
+            display: flex;
+            flex-direction: row-reverse;
+            /* image right side chali jayegi */
+            align-items: center;
+            margin-top: -600px;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+        .second-card img {
+            margin-right: 50px;
+            margin-left: 0;
+            width: 300px;
+            height: 170px;
+            object-fit: contain;
+
+        }
+
+        .second-card h2 {
+            margin-left: 50px;
+            width: 350px;
+            font-size: 19px;
+            font-family: a;
+            transition: 0.3s ease;
+            text-decoration: underline 5px white;
+            transition: all 0.3s;
+        }
+
+        .second-card h2:hover {
+            text-decoration-color: rgb(255, 173, 51);
+            transition: transform 0.3s ease;
+
+        }
+
+        .second-card p {
+            margin-left: 50px;
+            width: 350px;
+        }
+
+        .third-card {
+            line-height: 20px;
+            display: flex;
+            flex-direction: row-reverse;
+            /* image right side chali jayegi */
+            align-items: center;
+            margin-right: 50px;
+            margin-top: 40px;
+        }
+
+        .third-card img {
+            width: 300px;
+            height: 170px;
+            object-fit: contain;
+        }
+
+        .third-card h2 {
+            margin-right: 50px;
+            width: 350px;
+            font-size: 19px;
+            font-family: a;
+            transition: 0.3s ease;
+            text-decoration: underline 5px white;
+            transition: all 0.3s;
+        }
+
+        .third-card h2:hover {
+            text-decoration-color: rgb(255, 173, 51);
+            transition: transform 0.3s ease;
+
+        }
+
+        .third-card p {
+            margin-right: 50px;
+            width: 350px;
+        }
+
+
+        section h3 {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            margin-top: 70px;
+            font-size: 28px;
+            position: relative;
+            display: inline-block;
+        }
+
+        section h3::after {
+            content: "";
+            display: block;
+            width: 510%;
+            height: 2px;
+            background-color: #1d1c1c;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Dusri line ka kam */
+        .duniya {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            margin-top: 70px;
+            font-size: 28px;
+            position: relative;
+            margin-left: 50px;
+            display: inline-block;
+        }
+
+        /* long underline line below the box, chipki hui */
+        .duniya::after {
+            content: "";
+            display: block;
+            width: 1382%;
+            height: 2px;
+            background-color: #1d1c1c;
+            margin: 10px auto 0;
+            border-radius: 2px;
+
+        }
+
+
+        .more {
+            margin-top: -60px;
+            margin-left: 90%;
+            font-family: a;
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            width: 100%;
+            max-width: 1210px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 30px;
+
+        }
+
+        /* CARD */
+        .card {
+            background: #fff;
+            border: 1px solid #e6e6e6;
+            padding-bottom: 20px;
+            transition: 0.3s ease;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 9px;
+
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 5px 18px rgba(0, 0, 0, 0.12);
+        }
+
+        /* IMAGE */
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .card:hover {
+            filter: brightness(1.15);
+            transition: 0.3s ease;
+        }
+
+        /* TITLE */
+        .card h3 {
+            font-size: 18px;
+            line-height: 1.3;
+            margin: 15px;
+            font-weight: 700;
+            color: #222;
+            transition: 0.3s ease;
+            text-decoration: underline 5px white;
+            transition: all 0.3s;
+
+        }
+
+        /* 🔥 HOVER TITLE COLOR */
+        .card h3:hover {
+            text-decoration-color: rgb(255, 173, 51);
+            transition: transform 0.3s ease;
+        }
+
+        /* DESCRIPTION */
+        .card p {
+            margin: 0 15px 10px;
+            color: #555;
+            font-size: 14px;
+        }
+
+        /* META */
+        .meta {
+            margin: 10px 15px;
+            font-size: 13px;
+            color: #666;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .container {
+            width: 92%;
+            margin: 20px auto;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .top-bar h2 {
+            font-size: 26px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .more-posts {
+            color: #555;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        /* Responsive Business & Commerce Cards */
+
+        .top-top {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            width: 90%;
+            margin: 40px auto;
+        }
+
+        .card-two {
+            background: white;
+            padding-bottom: 18px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .card-two:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-two img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card-two:hover {
+            filter: brightness(1.15);
+        }
+
+        .card-two h3 {
+            font-size: 17px;
+            margin: 14px;
+            font-weight: bold;
+            line-height: 1.3;
+            transition: 0.3s ease;
+            text-decoration: underline 5px white;
+            transition: all 0.3s;
+
+        }
+
+        .card-two h3:hover {
+            text-decoration-color: rgb(255, 173, 51);
+            transition: transform 0.3s ease;
+        }
+
+
+        .card-two p {
+            margin: 0 14px 12px;
+            color: #444;
+            font-size: 14px;
+        }
+
+        .card-two .meta {
+            margin: 0 14px 12px;
+            font-size: 12px;
+            color: #777;
+        }
+
+
+
+
+        .Jannat {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            margin-top: 70px;
+            font-size: 28px;
+            position: relative;
+            margin-left: 50px;
+            display: inline-block;
+        }
+
+        .Jannat::after {
+            content: "";
+            display: block;
+            width: 431%;
+            height: 2px;
+            background-color: #1d1c1c;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Entertainment and EDucation ka kam */
+
+        .container {
+            width: 90%;
+            margin: auto;
+            padding-top: 30px;
+            display: flex;
+            gap: 40px;
+        }
+
+        .column {
+            flex: 1;
+        }
+
+        h2 {
+            font-size: 26px;
+            font-weight: bold;
+            border-left: 5px solid black;
+            padding-left: 10px;
+            margin-bottom: 20px;
+        }
+
+        .post {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 35px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .post img {
+            width: 180px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .post-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            line-height: 1.3em;
+        }
+
+        .post-text {
+            font-size: 14px;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        .meta {
+            font-size: 12px;
+            color: #777;
+        }
+
+        .Entertainment {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            margin-top: 70px;
+            font-size: 28px;
+            position: relative;
+            margin-left: 0px;
+            display: inline-block;
+        }
+
+        /* long underline line below the box, chipki hui */
+        .Entertainment::after {
+            content: "";
+            display: block;
+            width: 300%;
+            height: 2px;
+            background-color: #1d1c1c;
+            margin: 10px auto 0;
+            border-radius: 2px;
+
+
+        }
+
+        .Education {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            margin-top: 70px;
+            font-size: 28px;
+            position: relative;
+            margin-left: 0px;
+            display: inline-block;
+        }
+
+        /* long underline line below the box, chipki hui */
+        .Education::after {
+            content: "";
+            display: block;
+            width: 420%;
+            height: 2px;
+            background-color: #1d1c1c;
+            margin: 10px auto 0;
+            border-radius: 2px;
+
+
+        }
+
+        /* Health ka Kam */
+
+        .Health {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            margin-top: 70px;
+            font-size: 28px;
+            position: relative;
+            margin-left: 50px;
+            display: inline-block;
+        }
+
+        .Health::after {
+            content: "";
+            display: block;
+            width: 1512%;
+            height: 2px;
+            background-color: #1d1c1c;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .card-three-top-top {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            width: 90%;
+            margin: 40px auto;
+        }
+
+        .card-three {
+            background: white;
+            padding-bottom: 18px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .card-three:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-three img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card-three:hover {
+            filter: brightness(1.10);
+        }
+
+        .card-three h3 {
+            font-size: 17px;
+            margin: 14px;
+            font-weight: bold;
+            line-height: 1.3;
+            transition: 0.3s ease;
+            text-decoration: underline 5px white;
+            transition: all 0.3s;
+
+        }
+
+        .card-three h3:hover {
+            text-decoration-color: rgb(255, 173, 51);
+            transition: transform 0.3s ease;
+        }
+
+
+        .card-three p {
+            margin: 0 14px 12px;
+            color: #444;
+            font-size: 14px;
+        }
+
+        .card-three .meta {
+            margin: 0 14px 12px;
+            font-size: 12px;
+            color: #777;
+        }
+
+        /* Climate and Weather ka kam */
+        .container {
+            width: 95%;
+            margin: 30px auto;
+        }
+
+        /* Climate & Weather Layout */
+
+        .last-card {
+            background: white;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            margin-left: 31px;
+            margin-top: 15px;
+            box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.068);
+
+        }
+
+        /* Image */
+        .last-card img {
+            width: 480px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* Text Right Side */
+        .last-content {
+            flex: 1;
+        }
+
+        .last-content h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            transition: 0.3s ease;
+            text-decoration: underline 5px white;
+            transition: all 0.3s;
+        }
+
+        .last-content h1:hover {
+            text-decoration-color: rgb(255, 173, 51);
+            transition: transform 0.3s ease;
+        }
+
+        .last-content p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* ---- Climate & Weather Header (Bottom Section Fix) ---- */
+
+        .climate-header {
+            width: 95%;
+            margin-right: 40px;
+            margin-bottom: -20px;
+            position: relative;
+        }
+
+        /* Jannat same as upper style */
+        .climate-title {
+            background: #000;
+            color: #fff;
+            font-size: 28px;
+            display: inline-block;
+            padding: 6px 14px;
+            position: relative;
+        }
+
+        /* SAME underline jesi upar hai */
+        .climate-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 468%;
+            height: 2px;
+            background: #000000;
+        }
+
+        /* More Post right side */
+        .climate-more {
+            position: absolute;
+            right: 0;
+            font-family: a;
+            font-size: 16px;
+            margin-top: -60px;
+            margin-right: -10px;
+        }
+
+        .Before {
+
+
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            margin-top: 70px;
+            font-size: 28px;
+            position: relative;
+            margin-left: 50px;
+            display: inline-block;
+        }
+
+        .Before::after {
+            content: "";
+            display: block;
+            width: 690%;
+            height: 2px;
+            background-color: #1d1c1c;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+
+
+
+
+
+        /* ---------------- FOOTER FIXED, CLEAN & RESPONSIVE ---------------- */
+
+        .main-footer {
+            width: 100%;
+            padding: 60px 7%;
+            border-top: 1px solid #ddd;
+            background: #fff;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-logo img {
+            width: 18vh;
+            border-radius: 50%;
+        }
+
+        .footer-title {
+            font-size: 8vh;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #000;
+            margin-left: -70px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .footer-social i {
+            font-size: 22px;
+            color: #000;
+            transition: 0.3s ease;
+        }
+
+        .footer-social i:hover {
+            color: #ff9e2a;
+            transform: scale(1.2);
+        }
+
+        /* Sections */
+        .footer-sections {
+            margin-top: 40px;
+            display: flex;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .footer-box {
+            min-width: 250px;
+            max-width: 350px;
+            padding-left: 12px;
+        }
+
+        /* Short underline (left border) only on headings */
+        .footer-box h3 {
+            border-left: 7px solid #000;
+            padding-left: 9px;
+        }
+
+        .footer-box:first-child {
+            border-left: 5px solid #000;
+            /* border poora container height tak */
+            padding-left: 12px;
+            /* text se gap ke liye */
+        }
+
+
+
+
+        .footer-box ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+            line-height: 1.9;
+        }
+
+        .footer-link {
+            color: #000;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .footer-link:hover {
+            color: #fc8905fd;
+        }
+
+        /* Copyright */
+        .copy-text {
+            margin-top: 45px;
+            font-size: 14px;
+            text-align: center;
+            color: #444;
+        }
+
+        /* --------- Dark Mode Fix for Footer ---------- */
+        .dark .main-footer {
+            background: #000 !important;
+            color: #fff !important;
+            border-color: #333 !important;
+        }
+
+        .dark .footer-title,
+        .dark .footer-logo *,
+        .dark .footer-link,
+        .dark .footer-box h3,
+        .dark .copy-text {
+            color: #fff !important;
+        }
+
+        .dark .footer-social i {
+            color: #fff !important;
+        }
+
+
+
+        /* Footer ka kam End */
+        /* ================= HEADER + NAVBAR RESPONSIVE ================= */
+
+        /* ---------- Tablet & small laptop (≤1024px) ---------- */
+        @media (max-width:1024px) {
+            .top-header {
+                padding: 20px;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .right-side {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .search-box input {
+                width: 200px;
+            }
+
+            .navbar {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            section h3 {
+                margin-left: 0 !important;
+                text-align: center;
+                display: block;
+            }
+        }
+
+        /* ---------- Tablet (≤768px) ---------- */
+        @media (max-width:768px) {
+            .top-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .logo a {
+                flex-direction: column;
+            }
+
+            .right-side {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .social-icons {
+                order: 2;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .search-box input {
+                width: 100%;
+            }
+
+            .navbar {
+                justify-content: center;
+                position: relative;
+            }
+
+            .navbar a {
+                font-size: 15px;
+                padding: 8px;
+            }
+
+            /* HEADLINE CARDS */
+            .home-card,
+            .second-card,
+            .third-card {
+                flex-direction: column;
+                align-items: center;
+                margin: 30px 0;
+            }
+
+            .home-card img,
+            .second-card img,
+            .third-card img {
+                width: 100%;
+                height: auto;
+                margin: 0;
+            }
+
+            .home-card h1,
+            .second-card h2,
+            .third-card h2,
+            .home-card p {
+                width: 100%;
+                margin: 15px 0;
+                text-align: left;
+            }
+        }
+
+        /* ---------- Mobile (≤576px) ---------- */
+        @media (max-width:576px) {
+            .logo img {
+                width: 60px;
+            }
+
+            .logo p {
+                font-size: 20px !important;
+            }
+
+            .navbar a {
+                font-size: 14px;
+            }
+
+            .theme-btn {
+                margin-left: 0;
+            }
+
+            .home-card h1 {
+                font-size: 22px;
+            }
+
+            .second-card h2,
+            .third-card h2 {
+                font-size: 16px;
+            }
+
+            .ad-section {
+                font-size: 12px;
+            }
+        }
+
+        /* ---------- Extra Small Devices (≤400px) ---------- */
+        @media (max-width:400px) {
+            .navbar a {
+                font-size: 13px;
+                padding: 6px;
+            }
+
+            .search-box input {
+                font-size: 13px;
+            }
+
+            .home-card h1 {
+                font-size: 20px;
+            }
+        }
+
+        /* ===================== POLITICS + BUSINESS + COLUMNS RESPONSIVE ===================== */
+
+        /* ---------- Large tablets & small laptops (≤1200px) ---------- */
+        @media (max-width:1200px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 20px;
+            }
+
+            .top-top {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        /* ---------- Tablets (≤992px) ---------- */
+        @media (max-width:992px) {
+            .container {
+                grid-template-columns: 1fr !important;
+            }
+
+            .top-top {
+                grid-template-columns: 1fr;
+            }
+
+            .column {
+                width: 100%;
+            }
+
+            .duniya,
+            .Jannat {
+                text-align: center;
+            }
+
+            .more {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* ---------- Tablet / Mobile Landscape (≤768px) ---------- */
+        @media (max-width:768px) {
+
+            /* POLITICS CARDS */
+            .card,
+            .card-two {
+                width: 100%;
+            }
+
+            .card img,
+            .card-two img {
+                width: 100%;
+                height: auto;
+            }
+
+            /* ENTERTAINMENT & EDUCATION POSTS */
+            .post {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .post img {
+                width: 100%;
+                height: auto;
+                margin-bottom: 10px;
+            }
+
+            .post-title {
+                font-size: 16px;
+            }
+        }
+
+        /* ---------- Mobile Portrait (≤576px) ---------- */
+        @media (max-width:576px) {
+
+            .duniya,
+            .Jannat,
+            .Entertainment,
+            .Education {
+                font-size: 20px;
+                text-align: center;
+            }
+
+            .card h3,
+            .card-two h3 {
+                font-size: 16px;
+            }
+
+            .card p,
+            .card-two p {
+                font-size: 14px;
+            }
+
+            .meta {
+                font-size: 12px;
+            }
+
+            .post-title {
+                font-size: 15px;
+            }
+
+            .post-text {
+                font-size: 13px;
+            }
+        }
+
+        /* ---------- Extra Small Devices (≤400px) ---------- */
+        @media (max-width:400px) {
+
+            .card h3,
+            .card-two h3 {
+                font-size: 15px;
+            }
+
+            .post-title {
+                font-size: 14px;
+            }
+
+            .meta {
+                font-size: 11px;
+            }
+        }
+
+        /* ================= HEALTH + CLIMATE + CRIME + SPORTS RESPONSIVE ================= */
+
+        /* ---------- Large tablets / small laptops (≤1200px) ---------- */
+        @media (max-width:1200px) {
+
+            .card-three-top-top,
+            .top-top {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .last-card {
+                gap: 30px;
+            }
+        }
+
+        /* ---------- Tablets (≤992px) ---------- */
+        @media (max-width:992px) {
+
+            .card-three-top-top,
+            .top-top {
+                grid-template-columns: 1fr;
+            }
+
+            .Health,
+            .Before,
+            .Sports,
+            .religion,
+            .metro,
+            .climate-title {
+                text-align: center;
+            }
+
+            .more,
+            .climate-more {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .last-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .last-card img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        /* ---------- Tablet / Mobile Landscape (≤768px) ---------- */
+        @media (max-width:768px) {
+
+            .card-three img,
+            .card-two img {
+                width: 100%;
+                height: auto;
+            }
+
+            .card-three h3,
+            .card-two h3 {
+                font-size: 17px;
+            }
+
+            .last-content h1 {
+                font-size: 22px;
+                line-height: 1.4;
+            }
+
+            .last-content p {
+                font-size: 14px;
+            }
+        }
+
+        /* ---------- Mobile Portrait (≤576px) ---------- */
+        @media (max-width:576px) {
+
+            .Health,
+            .Before,
+            .climate-title {
+                font-size: 20px;
+            }
+
+            .card-three h3,
+            .card-two h3 {
+                font-size: 16px;
+            }
+
+            .card-three p,
+            .card-two p {
+                font-size: 14px;
+            }
+
+            .meta {
+                font-size: 12px;
+            }
+
+            .last-content h1 {
+                font-size: 20px;
+            }
+        }
+
+        /* ---------- Extra Small Devices (≤400px) ---------- */
+        @media (max-width:400px) {
+
+            .card-three h3,
+            .card-two h3 {
+                font-size: 15px;
+            }
+
+            .last-content h1 {
+                font-size: 18px;
+            }
+
+            .meta {
+                font-size: 11px;
+            }
+        }
+
+        /* ========================= FOOTER RESPONSIVE ========================= */
+
+        /* ---------- Large tablets / small laptops (≤1200px) ---------- */
+        @media (max-width:1200px) {
+            .footer-sections {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+        }
+
+        /* ---------- Tablets (≤992px) ---------- */
+        @media (max-width:992px) {
+            .footer-top {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .footer-logo {
+                margin-left: 0;
+                justify-content: center;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+
+            .footer-sections {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-box ul {
+                padding-left: 0;
+            }
+        }
+
+        /* ---------- Tablet / Mobile Landscape (≤768px) ---------- */
+        @media (max-width:768px) {
+            .footer-title {
+                font-size: 34px;
+            }
+
+            .footer-box h3 {
+                font-size: 18px;
+            }
+
+            .footer-box p,
+            .footer-link {
+                font-size: 14px;
+            }
+        }
+
+        /* ---------- Mobile Portrait (≤576px) ---------- */
+        @media (max-width:576px) {
+            .footer-title {
+                font-size: 28px;
+            }
+
+            .footer-social a {
+                font-size: 16px;
+                margin: 0 6px;
+            }
+
+            .footer-box h3 {
+                font-size: 16px;
+            }
+
+            .copy-text {
+                font-size: 13px;
+                text-align: center;
+            }
+        }
+
+        /* ---------- Extra Small Devices (≤400px) ---------- */
+        @media (max-width:400px) {
+            .footer-title {
+                font-size: 24px;
+            }
+
+            .footer-social a {
+                font-size: 14px;
+            }
+
+            .copy-text {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="top-header">
+        <div class="logo">
+            <a href="index.html" class="logo">
+                <img src="https://i.pinimg.com/736x/1d/15/5b/1d155b07cb2ad9daf581f5f559f7ac4a.jpg" alt="Sanitary Logo">
+                <p style="font-size: xx-large;">the_time_of_unity</p>
+            </a>
+        </div>
+        <div class="right-side">
+            <div class="social-icons">
+
+                <a href=""><i class="fab fa-facebook-f" style="color: black;"></i></a>
+                <a href=""><i class="fab fa-x-twitter" style="color: black;"></i></a>
+                <a href=""><i class="fab fa-youtube" style="color: black;"></i></a>
+                <a href=""><i class="fab fa-instagram" style="color: black;"></i></a>
+                <a href=""><i class="fab fa-whatsapp" style="color: black;"></i></a>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Search Headlines, News...">
+                <button><i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </header>
+    <nav class="navbar">
+        <a href="index.html" class="active">Home</a>
+        <a href="politics.html">Politics</a>
+        <a href="Education.html">Education</a>
+        <a href="Entertainment.html">Entertainment</a>
+        <a href="Sports.html">Sports</a>
+        <a href="Blogs.htzzml">Blogs</a>
+        <a href="Business & Commerce.html">Business & Commerce</a>
+
+
+        <div class="theme-btn"><i class="fas fa-sun"></i></div>
+    </nav>
+    <div class="ad-section" style="font-size: small;font-weight: bold; color: #000000;">– Advertisement –</div>
+    <div class="discover-section">
+
+    </div>
+
+
+    <!-- First card -->
+    <section>
+        <h3 style="margin-left: 600px;  ">Headlines</h3>
+        <div class="home-card">
+            <img src="https://mediahyde.com/wp-content/uploads/2025/12/Karachi-Fire-1.webp" alt="likh">
+            <div class="home">
+                <h1>Karachi: Massive Fire Erupts at Garment Factory in Export Processing Zone</h1>
+                <p>A major fire broke out at a garment factory inside Karachi’s Export Processing Zone on Monday,
+                    triggering panic among workers and prompting a rapid response from fire brigades. According to…</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Second card -->
+    <section>
+        <div class="home-card second-card">
+            <img src="https://mediahyde.com/wp-content/smush-webp/2025/12/marco-rubio-news-330x220.jpg.webp" alt="likh">
+            <div class="home">
+                <h2>40 US Lawmakers Raise Alarm Over Pakistan’s Human Rights Crisis</h2>
+                <p>More than 40 US lawmakers have urged Secretary of State Marco Rubio…</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- third  card -->
+    <section>
+        <div class="third-card">
+            <img src="https://mediahyde.com/wp-content/smush-webp/2025/12/those-who-backstab-pakistan-will-get-befitting-reply-army-chief-asim-munir-takes-a-dig-at-iran_1-330x220.jpg.webp"
+                alt="likh">
+            <div class="home">
+                <h2>PM OKs Asim Munir as Pakistan’s First Chief of Defence Forces</h2>
+                <p>Prime Minister Shehbaz Sharif has approved the appointment of Field Marshal Asim…</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- third  card -->
+    <section>
+        <div class="third-card">
+            <img src="https://mediahyde.com/wp-content/uploads/2025/12/637425_721098_updates-330x220.webp" alt="likh">
+            <div class="home">
+                <h2>Pakistan Set to “Soar to Greater Heights,” Says Field Marshal Asim Munir as Govt Moves to Appoint
+                    Him First CDF</h2>
+                <p>ISLAMABAD: Chief of Army Staff (COAS) Field Marshal Asim Munir has said…</p>
+            </div>
+        </div>
+    </section>
+    <br><br>
+
+
+
+
+    <div class="ad-section" style="font-size: small;font-weight: bold; color: #000000;">– Advertisement –</div>
+    <div class="discover-section">
+
+    </div>
+
+
+    <p class="duniya">Politics</p>
+    <p class="more"><i>More Posts</i></p>
+
+
+
+
+    <div class="container">
+
+        <!-- CARD 1 -->
+        <div class="card">
+            <img src="../image/Abid Chacu.png" alt="">
+            <h3>Abid Sher Ali Elected Senator Unopposed, Seen as Boost for PML-N</h3>
+            <p>PML-N leader Abid Sher Ali has been elected Senator unopposed,…</p>
+            <div class="meta">
+                <span>By Aiza Uddin</span>
+                <span>• December 8, 2025</span>
+            </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="card">
+            <img src="../image/Confarance Room.png" alt="">
+            <h3>New Party Position Emerges in National Assembly After By-Elections</h3>
+            <p>Following the recent by-elections, the political landscape of the National…</p>
+            <div class="meta">
+                <span>By Aiza Uddin</span>
+                <span>• December 6, 2025</span>
+            </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="card">
+            <img src="../image/petrol.png" alt="">
+            <h3>Government Cuts Petroleum Prices: Relief for Fuel Consumers</h3>
+            <p>The government has announced a reduction in prices of major…</p>
+            <div class="meta">
+                <span>By Aiza Uddin</span>
+                <span>• December 1, 2025</span>
+            </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="card">
+            <img src="../image/Pti.png" alt="">
+            <h3>PTI Would Not Resort to Protest Politics If Justice Was Served, Says Sohail Afridi</h3>
+            <p>Khyber Pakhtunkhwa Chief Minister Sohail Afridi has said that Pakistan…</p>
+            <div class="meta">
+                <span>By Aiza Uddin</span>
+                <span>• November 30, 2025</span>
+            </div>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="card">
+            <img src="../image/100Rs.png" alt="">
+            <h3>Peshawar Set for Rs100 Billion Transformation as CM Announces Historic Development Plan</h3>
+            <p>Peshawar is set to undergo one of the biggest urban…</p>
+            <div class="meta">
+                <span>By Salman Khan</span>
+                <span>• November 30, 2025</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!--Business & Commerce ka kam  -->
+
+    <p class="Jannat">Business & Commerce</p>
+    <p class="more"><i>More Posts</i></p>
+
+
+    <div class="top-top">
+
+        <!-- Card 1 -->
+        <div class="card-two">
+            <img src="../image/Tomato And Onion.png" alt="">
+            <h3>Tomatoes, Onions Lead Decline as Inflation Falls by 0.64%</h3>
+            <p>The country witnessed a decline in weekly inflation, with the...</p>
+            <div class="meta">
+                <span>By Salman Khan</span> • <span>December 5, 2025</span>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card-two">
+            <img src="../image/Imf.png" alt="">
+            <h3>Govt Targets Zero Circular Debt Inflow to Meet IMF Condition</h3>
+            <p>ISLAMABAD: The federal government has decided to bring the power...</p>
+            <div class="meta">
+                <span>By Sana Mustafa</span> • <span>November 27, 2025</span>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card-two">
+            <img src="../image/Afgani.png" alt="">
+            <h3>Afghan Economy Buckles Under Hunger and Debt</h3>
+            <p>KARACHI: Afghanistan is facing a worsening humanitarian and economic crisis…</p>
+            <div class="meta">
+                <span>By Sana Mustafa</span> • <span>November 27, 2025</span>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="container">
+
+
+
+        <!-- Entertainment Column -->
+        <div class="column">
+            <h2 class="Entertainment">Entertainment</h2>
+            <p class="more"><i>More Posts</i></p>
+
+
+            <div class="post">
+
+                <img src="../image/Shadi Card.png" alt="img">
+                <div>
+                    <div class="post-title">Hina Niazi’s Wedding Festivities Begin with a Heartwarming Dua‑e‑Khair</div>
+                    <div class="post-text">The wedding celebrations officially...</div>
+                    <div class="meta">By Sameer Sheikh — December 9, 2025</div>
+                </div>
+            </div>
+
+            <div class="post">
+                <img src="../image/Netflix.png" alt="img">
+                <div>
+                    <div class="post-title">Netflix Buying EA, Fox & Disney Before Turning to Warner Bros.</div>
+                    <div class="post-text">New reporting reveals...</div>
+                    <div class="meta">By Abdul Qavi — December 9, 2025</div>
+                </div>
+            </div>
+
+
+            <div class="post">
+                <img src="../image/Fifa Cup.png" alt="img">
+                <div>
+                    <div class="post-title">Golden Globes 2026: Full List of Film, TV and Podcast Nominees Unveiled.
+                    </div>
+                    <div class="post-text">Hollywood’s award season officially kicked into high gear this week…</div>
+                    <div class="meta">By
+                        Abdul Qavi —
+                        December 9, 2025</div>
+                </div>
+            </div>
+
+            <div class="post">
+                <img src="../image/NAwazUddin Sidique.png" alt="img">
+                <div>
+                    <div class="post-title">Naeema Butt Seen With Nawazuddin Siddiqui; Social Media Erupts With
+                        Speculation.</div>
+                    <div class="post-text">Pakistani actress Naeema Butt set the internet buzzing after she…</div>
+                    <div class="meta">By Abdul Qavi — December 9, 2025</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Education Column -->
+        <div class="column">
+            <h2 class="Education">Education</h2>
+            <p class="more"><i>More Posts</i></p>
+
+
+            <div class="post">
+                <img src="../image/Rangers.png" alt="img">
+                <div>
+                    <div class="post-title">Punjab Enforces New SOPs for All Schools Due to Threats</div>
+                    <div class="post-text">Punjab govt orders strict implementation...</div>
+                    <div class="meta">By Naureen Farooq — December 8, 2025</div>
+                </div>
+            </div>
+
+            <div class="post">
+                <img src="../image/Jhaipu Sir .png" alt="img">
+                <div>
+                    <div class="post-title">Aligarh Institute Launches “Student of the Month” Program</div>
+                    <div class="post-text">AIT Karachi kicks off...</div>
+                    <div class="meta">By Alisha Akhtar — December 7, 2025</div>
+                </div>
+            </div>
+
+            <div class="post">
+                <img src="../image/SChool Bus.png" alt="img">
+                <div>
+                    <div class="post-title">Punjab EPA Seizes PU Buses Over Heavy Smoke, Launches Major Crackdown</div>
+                    <div class="post-text">Lahore — The Punjab Environmental Protection Agency (EPA) has seized…</div>
+                    <div class="meta">By Alisha Akhtar — December 7, 2025</div>
+                </div>
+            </div>
+
+            <div class="post">
+                <img src="../image/Graduates.png" alt="img">
+                <div>
+                    <div class="post-title">Sindh CM Awards Honorary PhD as Dawood University Holds 13th Convocation
+                    </div>
+                    <div class="post-text">KARACHI, Dec 6, 2025: Sindh Chief Minister Syed Murad Ali…</div>
+                    <div class="meta">By Alisha Akhtar — December 7, 2025</div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <!--Health  -->
+
+    <p class="Health">Health</p>
+    <p class="more"><i>More Posts</i></p>
+
+
+    <div class="card-three-top-top">
+
+        <!-- Card 1 -->
+        <div class="card-three">
+            <img src="../image/Heart Beat.png" alt="">
+            <h3>Free Treatment for Cancer and Heart Patients!</h3>
+            <p>The Punjab government has announced a major relief for individuals…</p>
+            <div class="meta">
+                <span>By
+                    Neha Ashraf</span> • <span>
+                    December 10, 2025</span>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card-three">
+            <img src="../image/Shugar.png" alt="">
+            <h3>Govt Targets Zero Circular Debt Inflow to Meet IMF Condition</h3>
+            <p>A recent study has warned that diabetic patients face a…</p>
+            <div class="meta">
+                <span>By
+                    Neha Ashraf</span> • <span>December 10, 2025</span>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card-three">
+            <img src="../image/Sleep.png" alt="">
+            <h3>UK: Dangerous Surge in Flu Cases Among Children, Vaccination Warning Issued</h3>
+            <p>After a large number of young students in the UK…</p>
+            <div class="meta">
+                <span>By
+                    Neha Ashraf</span> • <span>
+                    December 10, 2025</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Climate And Weather -->
+
+    <div class="climate-header">
+        <p class="Jannat climate-title">Climate & Weather</p>
+        <p class="more climate-more"><i>More Posts</i></p>
+    </div>
+
+    <div class="last-card">
+        <img src="../image/Peoples.png" alt="children">
+
+        <div class="last-content">
+            <h1 class="kuch-bhi">
+                Pakistan Faces Water Crisis as 80% Lack <br>
+                Access to Safe Drinking Water
+            </h1>
+            <p class="meta">By Anoosha Malik — December 11, 2025</p>
+            <p>
+                Pakistan’s Water Crisis Persists as Majority Still Lack Safe Drinking Water:
+                ADB More than 80 percent of Pakistan’s population...
+            </p>
+            <a href="#" style="color: black;font-weight: bold;font-size: smaller;">Read More →</a>
+        </div>
+    </div>
+
+
+
+
+    <!-- crime & court ka kam  -->
+
+    <p class="Before">Crime & Court</p>
+    <p class="more"><i>More Posts</i></p>
+
+
+    <div class="top-top">
+
+        <!-- Card 1 -->
+        <div class="card-two">
+            <img src="../image/police.webp" alt="">
+            <h3>Rawalpindi police arrest domestic worker’s father, recover Rs550,000 in house theft investigation.</h3>
+            <p>The country witnessed a decline in weekly inflation, with the...</p>
+            <div class="meta">
+                <span>By
+                    Jaweria Ahmed</span> • <span>
+                    December 13, 2025</span>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card-two">
+            <img src="../image/child.webp" alt="">
+            <h3>Govt Targets Zero Circular Debt Inflow to Meet IMF Condition</h3>
+            <p>Lahore police have arrested an online taxi driver accused of…</p>
+            <div class="meta">
+                <span>By
+                    Jaweria Ahmed</span> • <span>December 13, 2025</span>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card-two">
+            <img src="../image/daket.webp" alt="">
+            <h3>Lahore police arrest a proclaimed offender involved in the murder of his grandfather after three years
+                of evasion.</h3>
+            <p>Lahore police have arrested a proclaimed offender involved in the…</p>
+            <div class="meta">
+                <span>By
+                    Jaweria Ahmed</span> • <span>December 13, 2025</span>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <!-- crime & court ka kam  -->
+
+
+
+
+
+
+    <div class="top-top" style="margin-top: 160px;">
+
+        <!-- Card 1 -->
+        <div class="card-two">
+
+            <p class="Sports" style="font-weight:bold; color: black; border-left: 6px solid;font-size: 20px;">Sports</p>
+
+
+            <img src="../image/schin.webp" alt="">
+            <h3>Sachin Tendulkar and Lionel Messi Meet, Photo Goes Viral</h3>
+            <p>Two of the biggest legends from the worlds of cricket…</p>
+            <div class="meta">
+                <span>By
+                    Niaz Ali</span> • <span>
+                    December 13, 2025</span>
+
+
+            </div>
+
+            <div class="container">
+                <!-- Card 2 -->
+                <div class="card-two">
+
+                    <h3>National Games: Grand Welcome for Wrestlers After Winning 14 Gold Medals</h3>
+                    <p>Wrestlers who secured 14 gold medals at the National Games were given a warm and…</p>
+                    <div class="meta">
+                        <span>By
+                        </span> • <span>
+
+                            Niaz Ali</span>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="card-two">
+
+                        <h3>Cricket Australia relaxes rules after shooting incident in Sydney</h3>
+                        <p>Following a shooting incident during an event at Sydney’s beachfront, Cricket Australia
+                            temporarily eased its…</p>
+                        <div class="meta">
+                            <span>By
+                            </span> • <span>
+
+                                Niaz Ali</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- metropolitan ka kam  -->
+
+        <!-- Card 2 -->
+        <div class="card-two">
+
+            <p class="metro" p class="Sports"
+                style="font-weight:bold; color: black; border-left: 6px solid;font-size: 20px;">Metropolitan</p>
+
+
+            <img src="../image/bus.gif" alt="">
+            <h3>Trailer Involved in Fatal Accident in Mauripur Traced and Seized</h3>
+            <p>The trailer that ran over young motorcyclists in Karachi’s Mauripur…</p>
+            <div class="meta">
+                <span>By
+
+                    Aiza Uddin</span> • <span>December 13, 2025</span>
+            </div>
+
+
+
+
+
+            <div class="top-top">
+
+
+
+
+                <!-- Card 2 -->
+                <div class="card-two">
+
+                    <h3>Seven-Year-Old Boy Dies After Falling Into Open Manhole While Going for Breakfast With Father
+                    </h3>
+                    <p>A heartbreaking incident occurred on Monday when a seven-year-old boy, who was accompanying his
+                        father…</p>
+                    <div class="meta">
+                        <span>By
+                        </span> • <span>
+                            Aiza Uddin</span>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card-two">
+
+                    <h3>Major Increase in Gas Prices Approved
+                    </h3>
+                    <p>ISLAMABAD – The government has approved a significant increase in gas prices, a move that…</p>
+                    <div class="meta">
+                        <span>By
+                        </span> • <span>Aiza Uddin</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- religion ka kam  -->
+
+        <!-- Card 3 -->
+        <div class="card-two">
+
+            <p class="religion" style="font-weight:bold; color: black; border-left: 6px solid;font-size: 20px;">
+                Religious</p>
+
+
+            <img src="../image/mufti.webp" alt="">
+            <h3>Mufti Muneeb-ur-Rehman Elected President of Tanzeem-ul-Madaris</h3>
+            <p>December 14, 2025 Web desk The central council meeting of…</p>
+            <div class="meta">
+                <span>By
+                </span> • <span>
+                    Wajeeha Batool</span>
+
+
+            </div>
+
+
+
+            <div class="top-top">
+
+
+
+
+                <!-- Card 2 -->
+                <div class="card-two">
+
+                    <h3>Iraq Lifts Visa Restrictions on Pakistani Pilgrims</h3>
+                    <p>December 14, 2025 Web desk Iraqi Interior Minister Mohsin Naqvi has announced the removal of…</p>
+                    <div class="meta">
+                        <span>By
+                        </span> • <span>
+                            Wajeeha Batoolk</span>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card-two">
+
+                    <h3>Rajab Likely to Begin on December 22 in Pakistan After Favorable Moon Sighting Forecast</h3>
+                    <p>The holy month of Rajab is expected to begin across Pakistan on Monday, December 22,…</p>
+                    <div class="meta">
+                        <span>By
+                        </span> • <span>Wajeeha Batoolk</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <div class="container">
+        <!-- FOOTER  -->
+
+        <footer class="main-footer">
+
+            <div class="footer-top">
+
+                <a href="index.html" class="logo footer-logo">
+                    <img src="../image/Logo.png" alt="Media Topu">
+                    <p class="footer-title">the_time_of_unity</p>
+                </a>
+
+                <!-- Social Icons -->
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+
+
+            </div>
+
+
+            <div class="footer-sections">
+
+                <!-- About -->
+                <div class="footer-box">
+                    <h3>About Us</h3>
+                    <p>
+                        <b>Media Topu Network:</b> Your instant connection to breaking stories and live updates.
+                        Stay informed with real-time coverage across politics, tech, entertainment, and more.
+                    </p>
+                </div>
+
+                <!-- Top Categories -->
+                <div class="footer-box">
+                    <h3>Top Categories</h3>
+                    <ul>
+                        <li><a class="footer-link" href="index.html">Headline</a></li>
+                        <li><a class="footer-link" href="politics.html">Politics</a></li>
+                        <li><a class="footer-link" href="Entertainment.html">Entertainment</a></li>
+                        <li><a class="footer-link" href="Education.html">Education</a></li>
+                        <li><a class="footer-link" href="Sports.html">Sports</a></li>
+                       <b> <li style="text-decoration: underline black;"><a class="footer-link">uzairbaba0000@gmail.com</a></li>
+                        </b>
+                       <b>  <li style="width: 5px; text-decoration: underline black;"><a class="footer-link" href="https://www.instagram.com/the_time_of_unity?igsh=bzR6ZTZ6aHo4M3k=" target="_blank">https://www.instagram.com/the_time_of_unity?igsh=bzR6ZTZ6aHo4M3k=</a></li></b>
+
+                    </ul>
+                </div>
+
+                <!-- Useful Links -->
+                <div class="footer-box">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li><a class="footer-link" href="Contact Us.html">Contact Us</a></li>
+                        <li><a class="footer-link" href="Disclaimer.html">Disclaimer</a></li>
+                        <li><a class="footer-link" href="Privacy Policy.html">Privacy Policy</a></li>
+                        <li><a class="footer-link" href="Cookies Policy.html">Cookies Policy</a></li>
+                        <li><a class="footer-link" href="Advertising Policy.html">Advertising Policy</a></li>
+                        <li><a class="footer-link" href="Terms & Conditions.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <p class="copy-text">© 2025 Media Topu Network. All Rights Reserved.</p>
+
+        </footer>
+    </div>
+
+
+
+
+
+
+
+    <script>
+        //  ya dark or light theam ka liya
+
+
+        // Pehle se saved theme check karo
+        const themeBtnIcon = document.querySelector(".theme-btn i");
+
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark");
+            themeBtnIcon.classList.remove("fa-sun");
+            themeBtnIcon.classList.add("fa-moon");
+        }
+
+        document.querySelector(".theme-btn").addEventListener("click", function () {
+            document.body.classList.toggle("dark");
+
+            // Animation ke liye rotate class temporarily add karo
+            themeBtnIcon.classList.add("rotate");
+            setTimeout(() => themeBtnIcon.classList.remove("rotate"), 300);
+
+            if (document.body.classList.contains("dark")) {
+                localStorage.setItem("theme", "dark");
+                themeBtnIcon.classList.remove("fa-sun");
+                themeBtnIcon.classList.add("fa-moon");
+            } else {
+                localStorage.setItem("theme", "light");
+                themeBtnIcon.classList.remove("fa-moon");
+                themeBtnIcon.classList.add("fa-sun");
+            }
+        });
+
+
+
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
+
+        window.addEventListener('scroll', function () {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                // Scroll down → hide navbar
+                navbar.style.top = "-80px"; // navbar ki height ke hisaab se adjust karo
+            } else {
+                // Scroll up → show navbar
+                navbar.style.top = "0";
+            }
+
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // negative scroll avoid
+        });
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Hyde</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="shortcut icon" href="https://i.pinimg.com/736x/1d/15/5b/1d155b07cb2ad9daf581f5f559f7ac4a.jpg"
+        type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 50px;
+
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .right-side {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        /* --- Social Icons Lift Hover Effect --- */
+        .social-icons i {
+            margin: 0 6px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: transform 0.25s ease, color 0.25s ease;
+        }
+
+        .social-icons i:hover {
+            transform: scale(1.30);
+        }
+
+        /* --- Search Arrow Button Hover Effect --- */
+        .search-box button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: none;
+            border: none;
+            height: 100%;
+            padding: 0 12px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.25s ease, color 0.25s ease;
+        }
+
+        .search-box button:hover {
+            transform: translateY(-5px);
+            color: #333;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding: 10px 15px;
+            width: 260px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .search-box button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: none;
+            border: none;
+            height: 100%;
+            padding: 0 12px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            font-family: a;
+            display: flex;
+            align-items: center;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 0px 40px;
+            gap: 25px;
+            font-size: 16px;
+            font-weight: bold;
+
+
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #000000;
+            padding: 10px 10px;
+            border-radius: 4px;
+            font-size: 18px;
+            transition: 0.2s;
+            /* Smooth effect */
+        }
+
+        .police {
+            margin-left: 40px;
+            margin-bottom: 50px;
+            font-family: a;
+            font-size: 45px;
+            font-weight: bold;
+            margin-top: -20px;
+        }
+
+        /* Politics ka card */
+
+
+        .top-top {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            margin-left: -25px;
+            /* right side */
+        }
+
+        .card-two {
+            background: #fff;
+            padding: 10px;
+            margin-left: 50px;
+        }
+
+        .card-two img {
+            width: 370px;
+        }
+
+
+
+        /* light mode ka liya */
+        .navbar {
+            background: #ffffff !important;
+            color: #000 !important;
+            /* dark mode ka */
+
+        }
+
+        .dark .navbar,
+        .dark .navbar * {
+            background-color: #000 !important;
+            color: #fff !important;
+        }
+
+        .navbar {
+            transition: top 0.35s ease-in-out;
+            z-index: 9999;
+        }
+
+        /* Dark mode navbar fix */
+        .dark .navbar {
+            background: #000 !important;
+            color: #fff !important;
+        }
+
+        .dark .navbar a {
+            background: transparent !important;
+            color: #fff !important;
+        }
+
+        .dark .navbar a:hover,
+        .dark .navbar a.active {
+            background: #222 !important;
+        }
+
+        /* Scroll hide/show smooth fix */
+        .navbar {
+            transition: top 0.3s ease-in-out;
+            z-index: 9999;
+        }
+
+
+
+
+        .navbar a.active {
+            background: #ebe8e8;
+            border-radius: 4px;
+        }
+
+        /* 🔥 Hover effect same as active tab */
+        .navbar a:hover {
+            background: #ebe8e8;
+            border-radius: 4px;
+        }
+
+        .theme-btn {
+            margin-left: auto;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        /* Theme button icon ke liye smooth transition */
+        .theme-btn i {
+            transition: transform 0.3s ease, color 0.3s ease;
+            font-size: 20px;
+        }
+
+        /* Optional: click par thoda rotate effect */
+        .theme-btn i.rotate {
+            transform: rotate(360deg);
+        }
+
+
+        /* 🔥 FULL PAGE PURE DARK MODE FIX — NO GREY, ONLY BLACK BACKGROUND + WHITE TEXT */
+
+        /* Whole page background */
+        .dark {
+            background: #000 !important;
+            color: #fff !important;
+        }
+
+        /* All sections, wrappers */
+        .dark * {
+            background-color: transparent !important;
+            color: #fff !important;
+        }
+
+        /* 🔥 FIX — Dark Mode me Text Neche White Line Remove */
+        .dark h1,
+        .dark h2,
+        .dark h3,
+        .dark p,
+        .dark a,
+        .dark span {
+            text-decoration: none !important;
+        }
+
+        /* Hover par hi sirf apka yellow underline aaye */
+        .dark h1:hover,
+        .dark h2:hover,
+        .dark h3:hover,
+        .dark a:hover {
+            text-decoration: underline !important;
+            text-decoration-color: rgb(255, 173, 51) !important;
+        }
+
+        /* 🔥 Thick Yellow Underline on Hover (5px) */
+
+        .card h3:hover,
+        .card-two h3:hover,
+        .home-card h1:hover,
+        .second-card h2:hover,
+        .third-card h2:hover {
+            text-decoration: underline !important;
+            text-decoration-color: rgb(255, 173, 51) !important;
+            text-decoration-thickness: 5px !important;
+        }
+
+        /* Dark mode ke hover ke liye bhi same effect */
+        .dark h1:hover,
+        .dark h2:hover,
+        .dark h3:hover {
+            text-decoration-thickness: 5px !important;
+        }
+
+
+        /* Advertisement box should stay fully white */
+        .dark .ad-section {
+            background: #fff !important;
+            color: #000 !important;
+            border-bottom: none !important;
+        }
+
+
+        /* Advertisement box white (as you required earlier) */
+        .dark .ad-section {
+            background: #fff !important;
+            color: #000 !important;
+        }
+
+        /* Search Box */
+        .dark .search-box input {
+            background: #111 !important;
+            border: 1px solid #444 !important;
+            color: #fff !important;
+        }
+
+        .dark .search-box button i {
+            color: #fff !important;
+        }
+
+        /* Navbar */
+        .dark .navbar {
+            background: #000 !important;
+            border-color: #333 !important;
+        }
+
+        .dark .navbar a {
+            color: #fff !important;
+        }
+
+        .dark .navbar a:hover,
+        .dark .navbar a.active {
+            background: #222 !important;
+        }
+
+        /* Social Icons */
+        .dark .social-icons i {
+            color: #fff !important;
+        }
+
+        /* HOME CARDS (HEADLINES main cards) */
+        .dark .home-card,
+        .dark .second-card,
+        .dark .third-card {
+            background: #000 !important;
+            color: #fff !important;
+        }
+
+        .dark .home-card h1,
+        .dark .second-card h2,
+        .dark .third-card h2 {
+            color: #fff !important;
+        }
+
+        .dark .home-card p,
+        .dark .second-card p,
+        .dark .third-card p {
+            color: #ddd !important;
+        }
+
+        /* IMAGES dim effect */
+        .dark img {
+            filter: brightness(0.85);
+        }
+
+        /* POLITICS CARDS (class = card) */
+        .dark .card {
+            background: #000 !important;
+            border-color: #333 !important;
+        }
+
+        .dark .card h3 {
+            color: #fff !important;
+        }
+
+        .dark .card p {
+            color: #ccc !important;
+        }
+
+        .dark .card .meta {
+            color: #aaa !important;
+        }
+
+        /* BUSINESS CARDS (class = card-two) */
+        .dark .card-two {
+            background: #000 !important;
+            border-color: #333 !important;
+        }
+
+        .dark .card-two h3 {
+            color: #fff !important;
+        }
+
+        .dark .card-two p {
+            color: #ccc !important;
+        }
+
+        .dark .card-two .meta {
+            color: #aaa !important;
+        }
+
+        /* Section Headings Like: Headlines, Politics, Business */
+        .dark section h3,
+        .dark .duniya,
+        .dark .Jannat {
+            background: #000 !important;
+            color: #fff !important;
+        }
+
+        .dark section h3::after,
+        .dark .duniya::after,
+        .dark .Jannat::after {
+            background: #333 !important;
+        }
+
+        /* FOOTER */
+        .dark footer {
+            background: #000 !important;
+            border-color: #333 !important;
+            color: #fff !important;
+        }
+
+        .dark footer * {
+            color: #fff !important;
+        }
+
+        .dark .footer-link:hover {
+            color: #ffae41 !important;
+        }
+
+        /* Footer Social Icons */
+        .dark footer i {
+            color: #fff !important;
+        }
+
+        /* Footer border left */
+        .dark footer h3 {
+            border-left-color: #fff !important;
+        }
+
+
+
+        /* toogle theme ka liya wala button */
+        .ad-section {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+
+        .discover-section {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .discover-section button {
+            padding: 8px 18px;
+            margin: 5px;
+            background: #f7f7f7;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        /* Logo CSS - Professional and classic logo styling */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: black;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .logo img {
+            width: 80px;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        /* ---------------- FOOTER FIXED, CLEAN & RESPONSIVE ---------------- */
+
+        .main-footer {
+            width: 80%;
+            padding: 60px 7%;
+            border-top: 1px solid #ddd;
+            background: #fff;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-logo img {
+            width: 18vh;
+            border-radius: 50%;
+        }
+
+        .footer-title {
+            font-size: 8vh;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #000;
+            margin-left: -70px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .footer-social i {
+            font-size: 22px;
+            color: #000;
+            transition: 0.3s ease;
+        }
+
+        .footer-social i:hover {
+            color: #ff9e2a;
+            transform: scale(1.2);
+        }
+
+        /* Sections */
+        .footer-sections {
+            margin-top: 40px;
+            display: flex;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .footer-box {
+            min-width: 250px;
+            max-width: 350px;
+            padding-left: 12px;
+        }
+
+        /* Short underline (left border) only on headings */
+        .footer-box h3 {
+            border-left: 7px solid #000;
+            padding-left: 9px;
+        }
+
+        .footer-box:first-child {
+            border-left: 5px solid #000;
+            /* border poora container height tak */
+            padding-left: 12px;
+            /* text se gap ke liye */
+        }
+
+
+
+
+        .footer-box ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+            line-height: 1.9;
+        }
+
+        .footer-link {
+            color: #000;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .footer-link:hover {
+            color: #fc8905fd;
+        }
+
+        /* Copyright */
+        .copy-text {
+            margin-top: 45px;
+            font-size: 14px;
+            text-align: center;
+            color: #444;
+        }
+
+        /* --------- Dark Mode Fix for Footer ---------- */
+        .dark .main-footer {
+            background: #000 !important;
+            color: #fff !important;
+            border-color: #333 !important;
+        }
+
+        .dark .footer-title,
+        .dark .footer-logo *,
+        .dark .footer-link,
+        .dark .footer-box h3,
+        .dark .copy-text {
+            color: #fff !important;
+        }
+
+        .dark .footer-social i {
+            color: #fff !important;
+        }
+
+        /* ====================== ULTRA RESPONSIVE MEDIA QUERIES ====================== */
+
+       /* ================= EXTRA LARGE SCREENS (4K & Large TVs) ================= */
+@media (min-width: 1800px) {
+    body {
+        max-width: 1600px;
+        margin: auto;
+    }
+
+    .top-top {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ================= DESKTOPS & LARGE LAPTOPS ================= */
+@media (max-width: 1400px) {
+    .top-top {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card-two img {
+        width: 100%;
+    }
+}
+
+/* ================= NORMAL LAPTOPS ================= */
+@media (max-width: 1200px) {
+    .top-top {
+        grid-template-columns: repeat(2, 1fr);
+        margin-left: 0;
+    }
+
+    .police {
+        font-size: 38px;
+    }
+}
+
+/* ================= TABLETS LANDSCAPE ================= */
+@media (max-width: 992px) {
+    .top-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .right-side {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .top-top {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+}
+
+/* ================= TABLETS PORTRAIT ================= */
+@media (max-width: 768px) {
+    .top-top {
+        grid-template-columns: 1fr;
+    }
+
+    .card-two {
+        margin-left: 0;
+    }
+
+    .police {
+        font-size: 32px;
+        margin-left: 15px;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+}
+
+/* ================= LARGE MOBILES ================= */
+@media (max-width: 576px) {
+    .logo img {
+        width: 50px;
+    }
+
+    .logo p {
+        font-size: 20px !important;
+    }
+
+    .navbar a {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    .footer-title {
+        font-size: 6vh;
+    }
+}
+
+/* ================= SMALL MOBILES ================= */
+@media (max-width: 480px) {
+    .police {
+        font-size: 26px;
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .footer-sections {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .footer-logo {
+        margin-left: 0;
+    }
+}
+
+/* ================= VERY SMALL / OLD PHONES ================= */
+@media (max-width: 360px) {
+    .navbar a {
+        font-size: 12px;
+    }
+
+    .logo p {
+        font-size: 16px !important;
+    }
+
+    .search-box input {
+        font-size: 13px;
+    }
+}
+
+
+.suggestions-box {
+    position: absolute;
+    top: 42px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    z-index: 9999;
+    display: none;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.suggestions-box div {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.suggestions-box div:hover {
+    background: #f2f2f2;
+}
+
+/* Dark mode fix */
+.dark .suggestions-box {
+    background: #111 !important;
+    border-color: #333 !important;
+}
+
+.dark .suggestions-box div {
+    color: #fff !important;
+}
+
+.dark .suggestions-box div:hover {
+    background: #222 !important;
+}
+
+
+
+
+
+
+
+
+.suggestion-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    cursor: pointer;
+}
+
+.suggestion-item img {
+    width: 50px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.suggestion-item span {
+    font-size: 14px;
+    line-height: 1.3;
+}
+
+.suggestion-item:hover {
+    background: #f2f2f2;
+}
+
+.dark .suggestion-item:hover {
+    background: #222 !important;
+}
+
+
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Nav bar ka kam -->
+    <header class="top-header">
+        <div class="logo">
+            <a href="index.html" class="logo">
+                <img src="https://i.pinimg.com/736x/1d/15/5b/1d155b07cb2ad9daf581f5f559f7ac4a.jpg" alt="Sanitary Logo">
+                <p style="font-size: xx-large;">the_time_of_unity</p>
+            </a>
+        </div>
+        <div class="right-side">
+            <div class="social-icons">
+
+                <a href=""><i class="fab fa-facebook-f" style="color: black;"></i></a>
+                <a href=""><i class="fab fa-x-twitter" style="color: black;"></i></a>
+                <a href=""><i class="fab fa-youtube" style="color: black;"></i></a>
+                <a href=""><i class="fab fa-instagram" style="color: black;"></i></a>
+                <a href=""><i class="fab fa-whatsapp" style="color: black;"></i></a>
+            </div>
+            <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search Headlines, News..." autocomplete="off">
+    <button onclick="performSearch()"><i class="fas fa-arrow-right"></i></button>
+
+    <!-- Suggestions -->
+    <div id="suggestions" class="suggestions-box"></div>
+</div>
+
+        </div>
+    </header>
+    <nav class="navbar">
+        <a href="index.html" class="active">Home</a>
+        <a href="politics.html">Politics</a>
+        <a href="Education.html">Education</a>
+        <a href="Entertainment.html">Entertainment</a>
+        <a href="Sports.html">Sports</a>
+        <a href="Blogs.html">Blogs</a>
+        <a href="Business & Commerce.html">Business & Commerce</a>
+
+
+        <div class="theme-btn"><i class="fas fa-sun"></i></div>
+    </nav>
+    <div class="ad-section" style="font-size: small;font-weight: bold; color: #000000;">– Advertisement –</div>
+    <div class="discover-section">
+
+    </div>
+
+
+
+
+    <!-- Politics ka kam  -->
+
+    <p class="police">Politics</p>
+
+
+
+    <div class="top-top">
+
+        <!-- Card 1 -->
+        <div class="card-two">
+            <img src="../image/punjab.webp" alt="" style="border-radius: 5px;">
+            <h3>Former Punjab Chief Minister Mian Manzoor Wattoo Passes Away</h3>
+            <p>Former Chief Minister of Punjab, Mian Manzoor Wattoo, has passed away, his family confirmed on…</p>
+            <div class="meta">
+                <span>By
+                    Aiza Uddin</span> • <span>
+                    December 16, 2025</span>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card-two">
+            <img src="../image/pti.webp" alt="" style="border-radius: 5px;">
+            <h3>PTI Used Foreign Firms to Push Paid Social Media Trends, Says Interior Minister</h3>
+            <p>ISLAMABAD: Minister of State for Interior Tallal Chaudhry on Monday alleged that Pakistan
+                Tehreek-e-Insaf (PTI)…</p>
+            <div class="meta">
+                <span>By
+                    Sana Mustafa</span> • <span>
+                    December 15, 2025</span>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card-two">
+            <img src="../image/navy.webp" alt="" style="border-radius: 5px;">
+            <h3>Pakistan Navy Successfully Tests Air Defence Missile in Arabian Sea</h3>
+            <p>The Pakistan Navy has successfully carried out a live firing of the FM-90 (N) Extended…</p>
+            <div class="meta">
+                <span>By
+                    Sana Mustafa</span> • <span>
+
+                    December 15, 2025</span>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Politics ka kam  -->
+
+
+
+
+
+    <div class="top-top" style="margin-top: 20px;">
+
+        <!-- Card 1 -->
+        <div class="card-two">
+            <img src="../image/truck.webp" alt="" style="border-radius: 5px;">
+            <h3>Talks Ahead as Transport Strike Threatens Nationwide Shutdown</h3>
+            <p> KARACHI: Federal Minister for Communications Abdul Aleem Khan is set to arrive in Karachi on…</p>
+            <div class="meta">
+                <span>By
+                    Sana Mustafa</span> • <span>
+
+                    December 15, 2025</span>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card-two">
+            <img src="../image/election.webp" alt="" style="border-radius: 5px;">
+            <h3>Election Commission Summons Chief Minister Suhail Afridi</h3>
+            <p>The Election Commission has summoned Chief Minister Suhail Afridi in connection with an ongoing matter…
+            </p>
+            <div class="meta">
+                <span>By
+                    Aiza Uddin</span> • <span>
+
+                    December 15, 2025</span>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card-two">
+            <img src="../image/pakistan.webp" alt="" style="border-radius: 5px;">
+            <h3> Major Blow to PTI as Senior Leader Announces Departure</h3>
+            <p>Pakistan Tehreek-e-Insaf (PTI) suffered a major setback on Tuesday after a senior party leader announced…
+            </p>
+            <div class="meta">
+                <span>By
+                    Aiza Uddin</span> • <span>
+
+                    December 15, 2025</span>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="top-top" style="margin-top: 20px;">
+
+        <!-- Card 1 -->
+        <div class="card-two">
+            <img src="../image/camera.webp" alt="" style="border-radius: 5px;">
+            <h3>Sindh Sets Up Panel to Review Karachi’s E-Challan System</h3>
+            <p>The Sindh government has formed a high-level committee to review Karachi’s e-challan system following
+                growing…</p>
+            <div class="meta">
+                <span>By
+                    Sana Mustafa</span> • <span>
+                    December 13, 2025</span>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card-two">
+            <img src="../image/nava sharif.webp" alt="" style="border-radius: 5px;">
+            <h3> PM Shehbaz Says Economy ‘Out of the Woods,’ Calls Indicators ‘Encouraging’</h3>
+            <p> ISLAMABAD: Prime Minister Shehbaz Sharif on Saturday said Pakistan’s economy has emerged from severe</p>
+            <div class="meta">
+                <span>By
+                    Hamna Raees</span> • <span>
+                    December 13, 2025</span>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+    <div class="container">
+        <!-- FOOTER  -->
+
+        <footer class="main-footer">
+
+            <div class="footer-top">
+
+                <a href="index.html" class="logo footer-logo">
+                    <img src="../image/Logo.png" alt="Media Topu">
+                    <p class="footer-title">the_time_of_unity</p>
+                </a>
+
+                <!-- Social Icons -->
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+
+
+            </div>
+
+
+            <div class="footer-sections">
+
+                <!-- About -->
+                <div class="footer-box">
+                    <h3>About Us</h3>
+                    <p>
+                        <b>Media Topu Network:</b> Your instant connection to breaking stories and live updates.
+                        Stay informed with real-time coverage across politics, tech, entertainment, and more.
+                    </p>
+                </div>
+
+                <!-- Top Categories -->
+                <div class="footer-box">
+                    <h3>Top Categories</h3>
+                    <ul>
+                        <li><a class="footer-link" href="index.html">Headline</a></li>
+                        <li><a class="footer-link" href="politics.html">Politics</a></li>
+                        <li><a class="footer-link" href="Entertainment.html">Entertainment</a></li>
+                        <li><a class="footer-link" href="Education.html">Education</a></li>
+                        <li><a class="footer-link" href="Sports.html">Sports</a></li>
+
+                         <li><a class="footer-link" href="Sports.html">Sports</a></li>
+                       <b> <li style="text-decoration: underline black;"><a class="footer-link">uzairbaba0000@gmail.com</a></li>
+                        </b>
+                       <b>  <li style="width: 5px; text-decoration: underline black;"><a class="footer-link" href="https://www.instagram.com/the_time_of_unity?igsh=bzR6ZTZ6aHo4M3k=" target="_blank">https://www.instagram.com/the_time_of_unity?igsh=bzR6ZTZ6aHo4M3k=</a></li></b>
+
+                    </ul>
+                </div>
+
+                <!-- Useful Links -->
+                <div class="footer-box">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li><a class="footer-link" href="Contact Us.html">Contact Us</a></li>
+                        <li><a class="footer-link" href="Disclaimer.html">Disclaimer</a></li>
+                        <li><a class="footer-link" href="Privacy Policy.html">Privacy Policy</a></li>
+                        <li><a class="footer-link" href="Cookies Policy.html">Cookies Policy</a></li>
+                        <li><a class="footer-link" href="Advertising Policy.html">Advertising Policy</a></li>
+                        <li><a class="footer-link" href="Terms & Conditions.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <p class="copy-text">© 2025 Media Topu Network. All Rights Reserved.</p>
+
+        </footer>
+    </div>
+
+
+
+
+    <script>
+        //  ya dark or light theam ka liya
+
+
+        // Pehle se saved theme check karo
+        const themeBtnIcon = document.querySelector(".theme-btn i");
+
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark");
+            themeBtnIcon.classList.remove("fa-sun");
+            themeBtnIcon.classList.add("fa-moon");
+        }
+
+        document.querySelector(".theme-btn").addEventListener("click", function () {
+            document.body.classList.toggle("dark");
+
+            // Animation ke liye rotate class temporarily add karo
+            themeBtnIcon.classList.add("rotate");
+            setTimeout(() => themeBtnIcon.classList.remove("rotate"), 300);
+
+            if (document.body.classList.contains("dark")) {
+                localStorage.setItem("theme", "dark");
+                themeBtnIcon.classList.remove("fa-sun");
+                themeBtnIcon.classList.add("fa-moon");
+            } else {
+                localStorage.setItem("theme", "light");
+                themeBtnIcon.classList.remove("fa-moon");
+                themeBtnIcon.classList.add("fa-sun");
+            }
+        });
+
+
+
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
+
+        window.addEventListener('scroll', function () {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                // Scroll down → hide navbar
+                navbar.style.top = "-80px"; // navbar ki height ke hisaab se adjust karo
+            } else {
+                // Scroll up → show navbar
+                navbar.style.top = "0";
+            }
+
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // negative scroll avoid
+        });
+
+
+
+
+
+
+
+
+
+        
+const searchInput = document.getElementById("searchInput");
+const suggestionsBox = document.getElementById("suggestions");
+const cards = document.querySelectorAll(".card-two");
+
+// 🔹 Card data collect karo
+let cardData = [];
+
+cards.forEach(card => {
+    cardData.push({
+        element: card,
+        title: card.querySelector("h3").innerText,
+        image: card.querySelector("img").src
+    });
+});
+
+// 🔍 LIVE SEARCH + IMAGE SUGGESTIONS
+searchInput.addEventListener("input", function () {
+    const value = this.value.toLowerCase();
+    suggestionsBox.innerHTML = "";
+
+    if (value === "") {
+        suggestionsBox.style.display = "none";
+        showAllCards();
+        return;
+    }
+
+    let matches = cardData.filter(item =>
+        item.title.toLowerCase().includes(value)
+    );
+
+    if (matches.length === 0) {
+        suggestionsBox.style.display = "none";
+        return;
+    }
+
+    suggestionsBox.style.display = "block";
+
+    matches.forEach(item => {
+        const div = document.createElement("div");
+        div.classList.add("suggestion-item");
+
+        div.innerHTML = `
+            <img src="${item.image}">
+            <span>${item.title}</span>
+        `;
+
+        div.onclick = () => {
+            searchInput.value = item.title;
+            suggestionsBox.style.display = "none";
+            filterCards(item.title);
+        };
+
+        suggestionsBox.appendChild(div);
+    });
+});
+
+// 🔎 Search button
+function performSearch() {
+    filterCards(searchInput.value);
+    suggestionsBox.style.display = "none";
+}
+
+// 🎯 Filter main cards
+function filterCards(text) {
+    text = text.toLowerCase();
+
+    cardData.forEach(item => {
+        if (item.title.toLowerCase().includes(text)) {
+            item.element.style.display = "block";
+        } else {
+            item.element.style.display = "none";
+        }
+    });
+}
+
+// 🔁 Reset
+function showAllCards() {
+    cardData.forEach(item => item.element.style.display = "block");
+}
+
+// ❌ Click outside = close suggestions
+document.addEventListener("click", e => {
+    if (!e.target.closest(".search-box")) {
+        suggestionsBox.style.display = "none";
+    }
+});
+ 
+
+
+    </script>
+</body>
+
+</html>

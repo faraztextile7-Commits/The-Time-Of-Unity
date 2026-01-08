@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="shortcut icon" href="https://i.pinimg.com/736x/1d/15/5b/1d155b07cb2ad9daf581f5f559f7ac4a.jpg"
+        type="image/x-icon">
+    <title>Media Hyde</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Logo CSS - Professional and classic logo styling */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: black;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .logo img {
+            width: 80px;
+            height: auto;
+            border-radius: 50%;
+        }
+
+
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 50px;
+
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .right-side {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        /* --- Social Icons Lift Hover Effect --- */
+        .social-icons i {
+            margin: 0 6px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: transform 0.25s ease, color 0.25s ease;
+        }
+
+        .social-icons i:hover {
+            transform: scale(1.30);
+        }
+
+        /* --- Search Arrow Button Hover Effect --- */
+        .search-box button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: none;
+            border: none;
+            height: 100%;
+            padding: 0 12px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.25s ease, color 0.25s ease;
+        }
+
+        .search-box button:hover {
+            transform: translateY(-5px);
+            color: #333;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding: 10px 15px;
+            width: 260px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .search-box button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: none;
+            border: none;
+            height: 100%;
+            padding: 0 12px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            font-family: a;
+            display: flex;
+            align-items: center;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 0px 40px;
+            gap: 25px;
+            font-size: 16px;
+            font-weight: bold;
+
+
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #000000;
+            padding: 10px 10px;
+            border-radius: 4px;
+            font-size: 18px;
+            transition: 0.2s;
+            /* Smooth effect */
+        }
+
+        /* light mode ka liya */
+        .navbar {
+            background: #ffffff !important;
+            color: #000 !important;
+            /* dark mode ka */
+
+        }
+
+        .dark .navbar,
+        .dark .navbar * {
+            background-color: #000 !important;
+            color: #fff !important;
+        }
+
+        .navbar {
+            transition: top 0.35s ease-in-out;
+            z-index: 9999;
+        }
+
+        /* Dark mode navbar fix */
+        .dark .navbar {
+            background: #000 !important;
+            color: #fff !important;
+        }
+
+        .dark .navbar a {
+            background: transparent !important;
+            color: #fff !important;
+        }
+
+        .dark .navbar a:hover,
+        .dark .navbar a.active {
+            background: #222 !important;
+        }
+
+        /* Scroll hide/show smooth fix */
+        .navbar {
+            transition: top 0.3s ease-in-out;
+            z-index: 9999;
+        }
+
+
+
+
+        .navbar a.active {
+            background: #ebe8e8;
+            border-radius: 4px;
+        }
+
+        /* 🔥 Hover effect same as active tab */
+        .navbar a:hover {
+            background: #ebe8e8;
+            border-radius: 4px;
+        }
+
+        .dark .navbar,
+        .dark .navbar * {
+            background-color: #000 !important;
+            color: #fff !important;
+        }
+
+        .navbar {
+            transition: top 0.35s ease-in-out;
+            z-index: 9999;
+        }
+
+        /* Dark mode navbar fix */
+        .dark .navbar {
+            background: #000 !important;
+            color: #fff !important;
+        }
+
+        .dark .navbar a {
+            background: transparent !important;
+            color: #fff !important;
+        }
+
+        .dark .navbar a:hover,
+        .dark .navbar a.active {
+            background: #222 !important;
+        }
+
+        /* Scroll hide/show smooth fix */
+        .navbar {
+            transition: top 0.3s ease-in-out;
+            z-index: 9999;
+        }
+
+
+
+
+        .navbar a.active {
+            background: #ebe8e8;
+            border-radius: 4px;
+        }
+
+        /* 🔥 Hover effect same as active tab */
+        .navbar a:hover {
+            background: #ebe8e8;
+            border-radius: 4px;
+        }
+
+        .theme-btn {
+            margin-left: auto;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        /* Theme button icon ke liye smooth transition */
+        .theme-btn i {
+            transition: transform 0.3s ease, color 0.3s ease;
+            font-size: 20px;
+        }
+
+        /* Optional: click par thoda rotate effect */
+        .theme-btn i.rotate {
+            transform: rotate(360deg);
+        }
+
+
+        /* 🔥 FULL PAGE PURE DARK MODE FIX — NO GREY, ONLY BLACK BACKGROUND + WHITE TEXT */
+
+        /* Whole page background */
+        .dark {
+            background: #000 !important;
+            color: #fff !important;
+        }
+
+        /* All sections, wrappers */
+        .dark * {
+            background-color: transparent !important;
+            color: #fff !important;
+        }
+
+
+        .normal-work {
+            padding: 80px;
+            font-family: a;
+            line-height: 30px;
+        }
+
+        .normal-work p {
+            font-size: larger;
+        }
+
+
+
+
+        /* ---------------- FOOTER FIXED, CLEAN & RESPONSIVE ---------------- */
+
+        .main-footer {
+            width: 80%;
+            padding: 60px 7%;
+            border-top: 1px solid #ddd;
+            background: #fff;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-logo img {
+            width: 18vh;
+            border-radius: 50%;
+        }
+
+        .footer-title {
+            font-size: 8vh;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #000;
+            margin-left: -70px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .footer-social i {
+            font-size: 22px;
+            color: #000;
+            transition: 0.3s ease;
+        }
+
+        .footer-social i:hover {
+            color: #ff9e2a;
+            transform: scale(1.2);
+        }
+
+        /* Sections */
+        .footer-sections {
+            margin-top: 40px;
+            display: flex;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .footer-box {
+            min-width: 250px;
+            max-width: 350px;
+            padding-left: 12px;
+        }
+
+        /* Short underline (left border) only on headings */
+        .footer-box h3 {
+            border-left: 7px solid #000;
+            padding-left: 9px;
+        }
+
+        .footer-box:first-child {
+            border-left: 5px solid #000;
+            /* border poora container height tak */
+            padding-left: 12px;
+            /* text se gap ke liye */
+        }
+
+
+
+
+        .footer-box ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+            line-height: 1.9;
+        }
+
+        .footer-link {
+            color: #000;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .footer-link:hover {
+            color: #fc8905fd;
+        }
+
+        /* Copyright */
+        .copy-text {
+            margin-top: 45px;
+            font-size: 14px;
+            text-align: center;
+            color: #444;
+        }
+
+        /* --------- Dark Mode Fix for Footer ---------- */
+        .dark .main-footer {
+            background: #000 !important;
+            color: #fff !important;
+            border-color: #333 !important;
+        }
+
+        .dark .footer-title,
+        .dark .footer-logo *,
+        .dark .footer-link,
+        .dark .footer-box h3,
+        .dark .copy-text {
+            color: #fff !important;
+        }
+
+        .dark .footer-social i {
+            color: #fff !important;
+        }
+
+        .bhoot a {
+            color: black;
+            text-decoration-color: #fc8905fd;
+            font-size: large;
+            font-weight: bolder;
+            
+        }
+
+        .bhoot:hover a {
+            color: #fc8905fd;
+            transition: 0.3s ease;
+
+        }
+
+         .bhoot  {
+            color: black;
+            text-decoration: underline;
+            text-decoration-color: #fc8905fd;
+            font-size: larger;
+            font-weight: bolder;
+        }
+         .bhoot:hover {
+            color: #fc8905fd;
+            transition: 0.3s ease;
+        }
+
+        /* ===================== GLOBAL SAFETY FIX ===================== */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.normal-work p,
+.normal-work h1,
+.normal-work h3 {
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+/* ===================== LARGE LAPTOPS (≤1200px) ===================== */
+@media (max-width: 1200px) {
+    .top-header {
+        padding: 25px 30px;
+    }
+
+    .search-box input {
+        width: 220px;
+    }
+
+    .normal-work {
+        padding: 60px;
+    }
+
+    .footer-title {
+        font-size: 6vh;
+    }
+}
+
+/* ===================== TABLETS (≤992px) ===================== */
+@media (max-width: 992px) {
+    .top-header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .right-side {
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        padding: 10px;
+    }
+
+    .theme-btn {
+        margin-left: 0;
+    }
+
+    .normal-work {
+        padding: 50px 40px;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+    }
+
+    .footer-sections {
+        justify-content: center;
+        gap: 35px;
+    }
+
+    .footer-logo {
+        margin-left: 0;
+    }
+}
+
+/* ===================== MOBILE LANDSCAPE (≤768px) ===================== */
+@media (max-width: 768px) {
+    .logo img {
+        width: 60px;
+    }
+
+    .logo p {
+        font-size: 22px !important;
+    }
+
+    .navbar a {
+        font-size: 15px;
+        padding: 8px;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+
+    .normal-work {
+        padding: 35px 25px;
+        line-height: 26px;
+    }
+
+    .normal-work h1 {
+        font-size: 32px;
+    }
+
+    .normal-work h3 {
+        font-size: 22px;
+    }
+
+    .normal-work p {
+        font-size: 16px;
+    }
+
+    /* ❗ Fixed width paragraph fix */
+    .normal-work p[style*="width"] {
+        width: 100% !important;
+    }
+
+    .footer-box {
+        max-width: 100%;
+    }
+}
+
+/* ===================== SMALL MOBILES (≤576px) ===================== */
+@media (max-width: 576px) {
+    .top-header {
+        padding: 15px;
+    }
+
+    .logo img {
+        width: 55px;
+    }
+
+    .logo p {
+        font-size: 20px !important;
+    }
+
+    .navbar a {
+        font-size: 14px;
+    }
+
+    .normal-work {
+        padding: 25px 18px;
+    }
+
+    .normal-work h1 {
+        font-size: 26px;
+    }
+
+    .normal-work h3 {
+        font-size: 20px;
+    }
+
+    .normal-work p {
+        font-size: 15px;
+    }
+
+    .footer-title {
+        font-size: 30px;
+    }
+}
+
+/* ===================== EXTRA SMALL PHONES (≤360px) ===================== */
+@media (max-width: 360px) {
+    .navbar a {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .normal-work {
+        padding: 20px 14px;
+    }
+
+    .normal-work h1 {
+        font-size: 22px;
+    }
+
+    .normal-work h3 {
+        font-size: 18px;
+    }
+
+    .normal-work p {
+        font-size: 14px;
+    }
+
+    .footer-title {
+        font-size: 24px;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <header class="top-header">
+        <div class="logo">
+            <a href="index.html" class="logo">
+                <img src="https://i.pinimg.com/736x/1d/15/5b/1d155b07cb2ad9daf581f5f559f7ac4a.jpg" alt="Sanitary Logo">
+                <p style="font-size: xx-large;">the_time_of_unity</p>
+            </a>
+        </div>
+        <div class="right-side">
+            <div class="social-icons">
+
+                <a href=""><i class="fab fa-facebook-f" style="color: black;"></i></a>
+                <a href=""><i class="fab fa-x-twitter" style="color: black;"></i></a>
+                <a href=""><i class="fab fa-youtube" style="color: black;"></i></a>
+                <a href=""><i class="fab fa-instagram" style="color: black;"></i></a>
+                <a href=""><i class="fab fa-whatsapp" style="color: black;"></i></a>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Search Headlines, News...">
+                <button><i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </header>
+    <nav class="navbar">
+        <a href="index.html" class="active">Home</a>
+        <a href="politics.html">Politics</a>
+        <a href="Education.html">Education</a>
+        <a href="Entertainment.html">Entertainment</a>
+        <a href="Sports.html">Sports</a>
+        <a href="Blogs.html">Blogs</a>
+        <a href="Business & Commerce.html">Business & Commerce</a>
+
+
+        <div class="theme-btn"><i class="fas fa-sun"></i></div>
+    </nav>
+
+
+
+    <section class="normal">
+        <div class="normal-work">
+
+            <h1>Advertising Policy</h1>
+
+            <h3>Introduction</h3>
+            <p>
+                At <strong>The time of unity</strong> (the “Website,” “we,” “us,” or “our”), we strive to provide
+                high-quality content and a
+                positive user experience. As part of this, we may display advertisements on our website. This
+                Advertising Policy explains how we use ads, the types of ads you may encounter, and how we handle user
+                data in relation to advertising.
+                By using our website, you consent to the collection, use, and sharing of your data as described in this
+                policy.
+            </p>
+
+
+            <h3>Types of Ads We Display</h3>
+            <p><strong>The time of unity:</strong> may display various types of advertisements on our website,
+                including:</p>
+
+            <ul style="font-size: larger; line-height: 50px;">
+                <li><strong>Display Ads:</strong> These are graphical ads, such as banner ads, that may appear on
+                    various parts of our website.</li>
+                <li><strong>Sponsored Content:</strong> Sponsored content is created by advertisers and is displayed on
+                    our website. This content will be clearly labeled as “Sponsored” or “Ad” to distinguish it from
+                    editorial content.</li>
+                <li><strong>Video Ads:</strong> Occasionally, we may display video ads before or during video content on
+                    our site.</li>
+                <li><strong>Text-Based Ads:</strong> These are simple text ads that may appear within the content or on
+                    the sidebars of the website.</li>
+            </ul>
+            <p>We may work with third-party advertising networks to deliver these ads.</p>
+
+
+
+            <h3>Third-Party Advertising Partners</h3>
+            <p>We partner with third-party advertising networks, including Google AdSense and other similar platforms,
+                to serve ads on our website. These ad networks may use cookies or web beacons to collect information
+                about your visits to <strong>The time of unity</strong> and other websites to provide targeted
+                advertisements that may interest you.</p>
+
+
+            <p>
+                For example, Google’s use of the DoubleClick cookie allows it to serve ads based on your visit to
+                <strong>The time of unity</strong> and other sites across the internet. You can opt out of the use of
+                the DoubleClick cookie for interest-based advertising by visiting <strong>Google Ads Settings.</strong>
+            </p>
+
+            <h3>User Data and Privacy</h3>
+            <p>We respect your privacy and are committed to complying with privacy laws. In connection with our
+                advertising practices, we collect and use certain information to deliver personalized ads. This may
+                include:
+
+            </p>
+
+            <p><strong>Cookies and Tracking Technologies:</strong> Cookies help us track your activities across the
+                website to deliver targeted ads. These cookies are set by both <strong>The time of unity </strong> and
+                third-party advertisers. </p>
+
+
+            <p><strong>Usage Data:</strong> We may collect non-personally identifiable information, such as your IP
+                address, browsing activity, and device information, which may be used for advertising purposes.</p>
+
+            <p>We do not collect sensitive personal data, such as names or addresses, for advertising purposes. However,
+                by using our website, you consent to the use of cookies for targeted advertising, as described in our
+                <strong>Cookies Policy.</strong>
+            </p>
+
+            <h3>Opting Out of Targeted Ads</h3>
+            <p>If you wish to limit or opt out of personalized advertising, you can do so through the following methods:
+            </p>
+
+
+            <ul style="font-size: larger; line-height: 50px;">
+                <li><strong>Google Ads Settings:</strong> You can opt out of personalized ads through Google by visiting
+                    Google Ads Settings.
+                </li>
+                <li><strong>Network Advertising Initiative (NAI):</strong> You can opt out of interest-based advertising
+                    from many third-party networks by visiting NAI Opt-Out.</li>
+                <li><strong>Digital Advertising Alliance (DAA):</strong> Visit DAA Opt-Out to opt out of interest-based
+                    advertising.</li>
+                <p>Please note that opting out of personalized advertising may result in you seeing less relevant ads,
+                    but you will still see ads.</p>
+            </ul>
+
+            <h3>Ad Content and Accuracy</h3>
+            <p>We take great care to ensure that the ads displayed on <strong>The time of unity</strong> are appropriate
+                and comply with relevant regulations. However, we are not responsible for the content of third-party
+                advertisements or for the accuracy of information provided by advertisers.</p>
+
+            <p>We do not endorse or guarantee the products or services advertised on our website and strongly encourage
+                our users to do their own research before making any purchasing decisions based on ads.</p>
+
+            <h3>Changes to Our Advertising Policy</h3>
+            <p>We may update or modify our Advertising Policy from time to time. Any changes will be posted on this page
+                with an updated “Last Revised” date. Please review this policy regularly to stay informed about how we
+                use ads and handle your data.
+
+            </p>
+
+            <h3>Contact Us</h3>
+            <p>If you have any questions or concerns regarding our Advertising Policy, please contact us at:</p>
+
+<span style="font-size: larger;">Email:</span>
+<strong class="bhoot">uzairbaba0000@gmail.com</strong>
+
+            <br><br>
+            
+            <span style="font-size: larger;">Website:</span>
+            <strong class="bhoot">
+                <a href="index.html" target="_blank">WWW.The time of unity.com</a>
+            </strong>
+        </div>
+
+    </section>
+
+
+
+    <!-- FOOTER  -->
+
+    <footer class="main-footer">
+
+        <div class="footer-top">
+
+            <a href="index.html" class="logo footer-logo">
+                <img src="../image/Logo.png" alt="Media Topu">
+                <p class="footer-title">the_time_of_unity</p>
+            </a>
+
+            <!-- Social Icons -->
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-sections">
+
+            <!-- About -->
+            <div class="footer-box">
+                <h3>About Us</h3>
+                <p>
+                    <b>Media Topu Network:</b> Your instant connection to breaking stories and live updates.
+                    Stay informed with real-time coverage across politics, tech, entertainment, and more.
+                </p>
+            </div>
+
+            <!-- Top Categories -->
+            <div class="footer-box">
+                <h3>Top Categories</h3>
+                <ul>
+                    <li><a class="footer-link" href="index.html">Headline</a></li>
+                    <li><a class="footer-link" href="politics.html">Politics</a></li>
+                    <li><a class="footer-link" href="Entertainment.html">Entertainment</a></li>
+                    <li><a class="footer-link" href="Education.html">Education</a></li>
+                    <li><a class="footer-link" href="Sports.html">Sports</a></li>
+
+                    <li><a class="footer-link" href="Sports.html">Sports</a></li>
+                    <b>
+                        <li style="text-decoration: underline black;"><a class="footer-link">uzairbaba0000@gmail.com</a>
+                        </li>
+                    </b>
+                    <b>
+                        <li style="width: 5px; text-decoration: underline black;"><a class="footer-link"
+                                href="https://www.instagram.com/the_time_of_unity?igsh=bzR6ZTZ6aHo4M3k="
+                                target="_blank">https://www.instagram.com/the_time_of_unity?igsh=bzR6ZTZ6aHo4M3k=</a>
+                        </li>
+                    </b>
+
+                </ul>
+            </div>
+
+            <!-- Useful Links -->
+            <div class="footer-box">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li><a class="footer-link" href="Contact Us.html">Contact Us</a></li>
+                    <li><a class="footer-link" href="Disclaimer.html">Disclaimer</a></li>
+                    <li><a class="footer-link" href="Privacy Policy.html">Privacy Policy</a></li>
+                    <li><a class="footer-link" href="Cookies Policy.html">Cookies Policy</a></li>
+                    <li><a class="footer-link" href="Advertising Policy.html">Advertising Policy</a></li>
+                    <li><a class="footer-link" href="Terms & Conditions.html">Terms & Conditions</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <p class="copy-text">© 2025 Media Topu Network. All Rights Reserved.</p>
+
+    </footer>
+    </div>
+
+
+
+
+
+
+    <script>
+        //  ya dark or light theam ka liya
+
+
+        // Pehle se saved theme check karo
+        const themeBtnIcon = document.querySelector(".theme-btn i");
+
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark");
+            themeBtnIcon.classList.remove("fa-sun");
+            themeBtnIcon.classList.add("fa-moon");
+        }
+
+        document.querySelector(".theme-btn").addEventListener("click", function () {
+            document.body.classList.toggle("dark");
+
+            // Animation ke liye rotate class temporarily add karo
+            themeBtnIcon.classList.add("rotate");
+            setTimeout(() => themeBtnIcon.classList.remove("rotate"), 300);
+
+            if (document.body.classList.contains("dark")) {
+                localStorage.setItem("theme", "dark");
+                themeBtnIcon.classList.remove("fa-sun");
+                themeBtnIcon.classList.add("fa-moon");
+            } else {
+                localStorage.setItem("theme", "light");
+                themeBtnIcon.classList.remove("fa-moon");
+                themeBtnIcon.classList.add("fa-sun");
+            }
+        });
+
+
+
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
+
+        window.addEventListener('scroll', function () {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                // Scroll down → hide navbar
+                navbar.style.top = "-80px"; // navbar ki height ke hisaab se adjust karo
+            } else {
+                // Scroll up → show navbar
+                navbar.style.top = "0";
+            }
+
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // negative scroll avoid
+        });
+
+    </script>
+</body>
+
+</html>

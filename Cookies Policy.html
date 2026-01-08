@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="shortcut icon" href="https://i.pinimg.com/736x/1d/15/5b/1d155b07cb2ad9daf581f5f559f7ac4a.jpg"
+        type="image/x-icon">
+    <title>Media Hyde</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Logo CSS - Professional and classic logo styling */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: black;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .logo img {
+            width: 80px;
+            height: auto;
+            border-radius: 50%;
+        }
+
+
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 50px;
+
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .right-side {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        /* --- Social Icons Lift Hover Effect --- */
+        .social-icons i {
+            margin: 0 6px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: transform 0.25s ease, color 0.25s ease;
+        }
+
+        .social-icons i:hover {
+            transform: scale(1.30);
+        }
+
+        /* --- Search Arrow Button Hover Effect --- */
+        .search-box button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: none;
+            border: none;
+            height: 100%;
+            padding: 0 12px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.25s ease, color 0.25s ease;
+        }
+
+        .search-box button:hover {
+            transform: translateY(-5px);
+            color: #333;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding: 10px 15px;
+            width: 260px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .search-box button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: none;
+            border: none;
+            height: 100%;
+            padding: 0 12px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            font-family: a;
+            display: flex;
+            align-items: center;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 0px 40px;
+            gap: 25px;
+            font-size: 16px;
+            font-weight: bold;
+
+
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #000000;
+            padding: 10px 10px;
+            border-radius: 4px;
+            font-size: 18px;
+            transition: 0.2s;
+            /* Smooth effect */
+        }
+
+        /* light mode ka liya */
+        .navbar {
+            background: #ffffff !important;
+            color: #000 !important;
+            /* dark mode ka */
+
+        }
+
+        .dark .navbar,
+        .dark .navbar * {
+            background-color: #000 !important;
+            color: #fff !important;
+        }
+
+        .navbar {
+            transition: top 0.35s ease-in-out;
+            z-index: 9999;
+        }
+
+        /* Dark mode navbar fix */
+        .dark .navbar {
+            background: #000 !important;
+            color: #fff !important;
+        }
+
+        .dark .navbar a {
+            background: transparent !important;
+            color: #fff !important;
+        }
+
+        .dark .navbar a:hover,
+        .dark .navbar a.active {
+            background: #222 !important;
+        }
+
+        /* Scroll hide/show smooth fix */
+        .navbar {
+            transition: top 0.3s ease-in-out;
+            z-index: 9999;
+        }
+
+
+
+
+        .navbar a.active {
+            background: #ebe8e8;
+            border-radius: 4px;
+        }
+
+        /* 🔥 Hover effect same as active tab */
+        .navbar a:hover {
+            background: #ebe8e8;
+            border-radius: 4px;
+        }
+
+        .dark .navbar,
+        .dark .navbar * {
+            background-color: #000 !important;
+            color: #fff !important;
+        }
+
+        .navbar {
+            transition: top 0.35s ease-in-out;
+            z-index: 9999;
+        }
+
+        /* Dark mode navbar fix */
+        .dark .navbar {
+            background: #000 !important;
+            color: #fff !important;
+        }
+
+        .dark .navbar a {
+            background: transparent !important;
+            color: #fff !important;
+        }
+
+        .dark .navbar a:hover,
+        .dark .navbar a.active {
+            background: #222 !important;
+        }
+
+        /* Scroll hide/show smooth fix */
+        .navbar {
+            transition: top 0.3s ease-in-out;
+            z-index: 9999;
+        }
+
+
+
+
+        .navbar a.active {
+            background: #ebe8e8;
+            border-radius: 4px;
+        }
+
+        /* 🔥 Hover effect same as active tab */
+        .navbar a:hover {
+            background: #ebe8e8;
+            border-radius: 4px;
+        }
+
+        .theme-btn {
+            margin-left: auto;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        /* Theme button icon ke liye smooth transition */
+        .theme-btn i {
+            transition: transform 0.3s ease, color 0.3s ease;
+            font-size: 20px;
+        }
+
+        /* Optional: click par thoda rotate effect */
+        .theme-btn i.rotate {
+            transform: rotate(360deg);
+        }
+
+
+        /* 🔥 FULL PAGE PURE DARK MODE FIX — NO GREY, ONLY BLACK BACKGROUND + WHITE TEXT */
+
+        /* Whole page background */
+        .dark {
+            background: #000 !important;
+            color: #fff !important;
+        }
+
+        /* All sections, wrappers */
+        .dark * {
+            background-color: transparent !important;
+            color: #fff !important;
+        }
+
+
+
+        .normal-work {
+            padding: 80px;
+            font-family: a;
+            line-height: 30px;
+        }
+
+        .normal-work p {
+            font-size: larger;
+        }
+
+
+
+
+        /* ---------------- FOOTER FIXED, CLEAN & RESPONSIVE ---------------- */
+
+        .main-footer {
+            width: 80%;
+            padding: 60px 7%;
+            border-top: 1px solid #ddd;
+            background: #fff;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-logo img {
+            width: 18vh;
+            border-radius: 50%;
+        }
+
+        .footer-title {
+            font-size: 8vh;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #000;
+            margin-left: -70px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .footer-social i {
+            font-size: 22px;
+            color: #000;
+            transition: 0.3s ease;
+        }
+
+        .footer-social i:hover {
+            color: #ff9e2a;
+            transform: scale(1.2);
+        }
+
+        /* Sections */
+        .footer-sections {
+            margin-top: 40px;
+            display: flex;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .footer-box {
+            min-width: 250px;
+            max-width: 350px;
+            padding-left: 12px;
+        }
+
+        /* Short underline (left border) only on headings */
+        .footer-box h3 {
+            border-left: 7px solid #000;
+            padding-left: 9px;
+        }
+
+        .footer-box:first-child {
+            border-left: 5px solid #000;
+            /* border poora container height tak */
+            padding-left: 12px;
+            /* text se gap ke liye */
+        }
+
+
+
+
+        .footer-box ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+            line-height: 1.9;
+        }
+
+        .footer-link {
+            color: #000;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .footer-link:hover {
+            color: #fc8905fd;
+        }
+
+        /* Copyright */
+        .copy-text {
+            margin-top: 45px;
+            font-size: 14px;
+            text-align: center;
+            color: #444;
+        }
+
+        /* --------- Dark Mode Fix for Footer ---------- */
+        .dark .main-footer {
+            background: #000 !important;
+            color: #fff !important;
+            border-color: #333 !important;
+        }
+
+        .dark .footer-title,
+        .dark .footer-logo *,
+        .dark .footer-link,
+        .dark .footer-box h3,
+        .dark .copy-text {
+            color: #fff !important;
+        }
+
+        .dark .footer-social i {
+            color: #fff !important;
+        }
+
+        /* ===================== GLOBAL SAFETY FIX ===================== */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.normal-work p,
+.normal-work h1,
+.normal-work h3 {
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+/* ===================== LARGE LAPTOPS (≤1200px) ===================== */
+@media (max-width: 1200px) {
+    .top-header {
+        padding: 25px 30px;
+    }
+
+    .search-box input {
+        width: 220px;
+    }
+
+    .normal-work {
+        padding: 60px;
+    }
+
+    .footer-title {
+        font-size: 6vh;
+    }
+}
+
+/* ===================== TABLETS (≤992px) ===================== */
+@media (max-width: 992px) {
+    .top-header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .right-side {
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        padding: 10px;
+    }
+
+    .theme-btn {
+        margin-left: 0;
+    }
+
+    .normal-work {
+        padding: 50px 40px;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+    }
+
+    .footer-sections {
+        justify-content: center;
+        gap: 35px;
+    }
+
+    .footer-logo {
+        margin-left: 0;
+    }
+}
+
+/* ===================== MOBILE LANDSCAPE (≤768px) ===================== */
+@media (max-width: 768px) {
+    .logo img {
+        width: 60px;
+    }
+
+    .logo p {
+        font-size: 22px !important;
+    }
+
+    .navbar a {
+        font-size: 15px;
+        padding: 8px;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+
+    .normal-work {
+        padding: 35px 25px;
+        line-height: 26px;
+    }
+
+    .normal-work h1 {
+        font-size: 32px;
+    }
+
+    .normal-work h3 {
+        font-size: 22px;
+    }
+
+    .normal-work p {
+        font-size: 16px;
+    }
+
+    /* ❗ Fixed width paragraph fix */
+    .normal-work p[style*="width"] {
+        width: 100% !important;
+    }
+
+    .footer-box {
+        max-width: 100%;
+    }
+}
+
+/* ===================== SMALL MOBILES (≤576px) ===================== */
+@media (max-width: 576px) {
+    .top-header {
+        padding: 15px;
+    }
+
+    .logo img {
+        width: 55px;
+    }
+
+    .logo p {
+        font-size: 20px !important;
+    }
+
+    .navbar a {
+        font-size: 14px;
+    }
+
+    .normal-work {
+        padding: 25px 18px;
+    }
+
+    .normal-work h1 {
+        font-size: 26px;
+    }
+
+    .normal-work h3 {
+        font-size: 20px;
+    }
+
+    .normal-work p {
+        font-size: 15px;
+    }
+
+    .footer-title {
+        font-size: 30px;
+    }
+}
+
+/* ===================== EXTRA SMALL PHONES (≤360px) ===================== */
+@media (max-width: 360px) {
+    .navbar a {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .normal-work {
+        padding: 20px 14px;
+    }
+
+    .normal-work h1 {
+        font-size: 22px;
+    }
+
+    .normal-work h3 {
+        font-size: 18px;
+    }
+
+    .normal-work p {
+        font-size: 14px;
+    }
+
+    .footer-title {
+        font-size: 24px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+    <header class="top-header">
+        <div class="logo">
+            <a href="index.html" class="logo">
+                <img src="https://i.pinimg.com/736x/1d/15/5b/1d155b07cb2ad9daf581f5f559f7ac4a.jpg" alt="Sanitary Logo">
+                <p style="font-size: xx-large;">the_time_of_unity</p>
+            </a>
+        </div>
+        <div class="right-side">
+            <div class="social-icons">
+
+                <a href=""><i class="fab fa-facebook-f" style="color: black;"></i></a>
+                <a href=""><i class="fab fa-x-twitter" style="color: black;"></i></a>
+                <a href=""><i class="fab fa-youtube" style="color: black;"></i></a>
+                <a href=""><i class="fab fa-instagram" style="color: black;"></i></a>
+                <a href=""><i class="fab fa-whatsapp" style="color: black;"></i></a>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Search Headlines, News...">
+                <button><i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </header>
+    <nav class="navbar">
+        <a href="index.html" class="active">Home</a>
+        <a href="politics.html">Politics</a>
+        <a href="Education.html">Education</a>
+        <a href="Entertainment.html">Entertainment</a>
+        <a href="Sports.html">Sports</a>
+        <a href="Blogs.html">Blogs</a>
+        <a href="Business & Commerce.html">Business & Commerce</a>
+
+
+        <div class="theme-btn"><i class="fas fa-sun"></i></div>
+    </nav>
+
+
+
+
+    <section class="normal">
+        <div class="normal-work">
+
+            <h1>Cookies Policy</h1>
+
+            <h3>Introduction</h3>
+            <p>
+                This Cookies Policy explains how <strong>the_time_of_unity</strong> (the “Website,” “we,” “us,” or “our”) uses
+                cookies and similar technologies to collect information about your browsing activities when you visit
+                our website, <span style="font-weight:bolder;text-decoration: underline rgb(226, 140, 11);">
+                    https://WWW.The time of unity.com.</span> By using our website, you consent to the use of cookies in accordance
+                with this policy.
+            </p>
+
+
+            <h3>What Are Cookies?</h3>
+            <p>Cookies are small text files that are stored on your device (computer, tablet, or mobile) when you visit
+                a website. They help the website function properly and are often used to provide a more personalized
+                experience by remembering your preferences or analyzing how visitors use the site.</p>
+
+
+
+            <h3>Types of Cookies We Use</h3>
+            <p>We use the following types of cookies on our website:</p>
+
+
+            <p>
+                <strong> Essential Cookies:</strong> These cookies are necessary for the proper functioning of the
+                website. They enable you to navigate the website and use its features, such as accessing secure areas.
+            </p>
+
+            <p><strong> Performance Cookies:</strong> These cookies collect information about how visitors use our
+                website, such as which pages are visited most often. This helps us analyze traffic, improve the
+                performance of the website, and provide a better user experience. These cookies do not collect personal
+                data and are used only for statistical purposes.
+                Example: Google Analytics cookies. </p>
+
+
+            <p><strong> Functional Cookies:</strong> These cookies remember your preferences and settings to provide a
+                more personalized experience. For example, they can remember your language preference or login details
+                so you don’t need to enter them every time you visit the website.</p>
+
+            <p><strong> Advertising Cookies:</strong> We may use cookies for targeted advertising and to measure the
+                effectiveness of our marketing campaigns. These cookies are used by third-party advertising networks to
+                track your browsing behavior and provide you with personalized ads.</p>
+
+            <h3>Google Analytics Cookies</h3>
+            <p>
+                <li>Our website uses Google Analytics to track and analyze the behavior of our visitors. Google
+                    Analytics uses cookies to collect information about how you use our site, which helps us improve the
+                    site’s functionality and user experience.
+                </li>
+                <li>For more information on how Google Analytics uses cookies, you can visit Google Analytics Privacy &
+                    Terms.</li>
+                <li>If you wish to opt-out of Google Analytics tracking, you can install the Google Analytics Opt-out
+                    Browser Add-on.</li>
+            </p>
+
+            <h3>Managing Cookies</h3>
+            <p>You can control and manage cookies through your browser settings. Most web browsers allow you to block or delete cookies. However, please note that disabling certain cookies may impact the functionality of our website and may prevent you from accessing certain features.</p>
+
+            <p>Here’s how to manage cookies in popular browsers:</p>
+
+            <li><strong> Google Chrome:</strong> Manage cookies in Chrome</li>
+            <li><strong> Mozilla Firefox:</strong> Manage cookies in Firefox</li>
+            <li><strong> Safari:</strong> Manage cookies in Safari</li>
+            <li><strong> Microsoft Edge:</strong> Manage cookies in Edge</li>
+
+            <h3>Third-Party Cookies</h3>
+            <p>In addition to the cookies set by us, third-party service providers, such as Google, may also place cookies on your device to enable certain features or services on our website. We do not have control over these third-party cookies.</p>
+
+            <p>For more information on third-party cookies and how to manage them, please refer to their respective privacy policies.</p>
+
+            <h3>Your Consent</h3>
+            <p>By using our website, you consent to the use of cookies as described in this Cookies Policy. If you do not agree with the use of cookies, you can modify your browser settings or refrain from using our website.</p>
+
+            <h3>Changes to This Cookies Policy</h3>
+            <p>We may update this Cookies Policy from time to time. Any changes will be posted on this page with an updated “Last Revised” date. Please review this policy periodically to stay informed about how we use cookies.</p>
+
+            <h3>Contact Us</h3>
+            <p>If you have any questions about this Cookies Policy or how we use cookies, please contact us:</p>
+
+            
+            <li><span style="margin-left:50px;"><strong> By email:</strong> uzairbaba0000@gmail.com</span></li>
+            <li><span style="margin-left:50px;">  By visiting <a href="https://www.instagram.com/the_time_of_unity?igsh=bzR6ZTZ6aHo4M3k=" target="_blank" style="color: black;"> <span style="font-weight: bold;text-decoration: underline;"> https://www.instagram.com/the_time_of_unity?igsh=bzR6ZTZ6aHo4M3k= </span> 
+                        </span></a></li>
+        </div>
+
+    </section>
+
+
+    <div class="container">
+        <!-- FOOTER  -->
+
+        <footer class="main-footer">
+
+            <div class="footer-top">
+
+                <a href="index.html" class="logo footer-logo">
+                    <img src="../image/Logo.png" alt="Media Topu">
+                    <p class="footer-title">the_time_of_unity</p>
+                </a>
+
+                <!-- Social Icons -->
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+
+
+            </div>
+
+
+            <div class="footer-sections">
+
+                <!-- About -->
+                <div class="footer-box">
+                    <h3>About Us</h3>
+                    <p>
+                        <b>Media Topu Network:</b> Your instant connection to breaking stories and live updates.
+                        Stay informed with real-time coverage across politics, tech, entertainment, and more.
+                    </p>
+                </div>
+
+                <!-- Top Categories -->
+                <div class="footer-box">
+                    <h3>Top Categories</h3>
+                    <ul>
+                        <li><a class="footer-link" href="index.html">Headline</a></li>
+                        <li><a class="footer-link" href="politics.html">Politics</a></li>
+                        <li><a class="footer-link" href="Entertainment.html">Entertainment</a></li>
+                        <li><a class="footer-link" href="Education.html">Education</a></li>
+                        <li><a class="footer-link" href="Sports.html">Sports</a></li>
+                        <li><a class="footer-link" href="Sports.html">Sports</a></li>
+                        <strong>
+                            <li style="text-decoration: underline black;"><a
+                                    class="footer-link">uzairbaba0000@gmail.com</a></li>
+                        </strong>
+                        <strong>
+                            <li style="width: 5px; text-decoration: underline black;"><a class="footer-link"
+                                    href="https://www.instagram.com/the_time_of_unity?igsh=bzR6ZTZ6aHo4M3k=" target="_blank">https://www.instagram.com/the_time_of_unity?igsh=bzR6ZTZ6aHo4M3k=</a>
+                            </li>
+                        </strong>
+
+                    </ul>
+                </div>
+
+                <!-- Useful Links -->
+                <div class="footer-box">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li><a class="footer-link" href="Contact Us.html">Contact Us</a></li>
+                        <li><a class="footer-link" href="Disclaimer.html">Disclaimer</a></li>
+                        <li><a class="footer-link" href="Privacy Policy.html">Privacy Policy</a></li>
+                        <li><a class="footer-link" href="Cookies Policy.html">Cookies Policy</a></li>
+                        <li><a class="footer-link" href="Advertising Policy.html">Advertising Policy</a></li>
+                        <li><a class="footer-link" href="Terms & Conditions.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <p class="copy-text">© 2025 Media Topu Network. All Rights Reserved.</p>
+
+        </footer>
+    </div>
+
+
+
+
+    <script>
+        //  ya dark or light theam ka liya
+
+
+        // Pehle se saved theme check karo
+        const themeBtnIcon = document.querySelector(".theme-btn i");
+
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark");
+            themeBtnIcon.classList.remove("fa-sun");
+            themeBtnIcon.classList.add("fa-moon");
+        }
+
+        document.querySelector(".theme-btn").addEventListener("click", function () {
+            document.body.classList.toggle("dark");
+
+            // Animation ke liye rotate class temporarily add karo
+            themeBtnIcon.classList.add("rotate");
+            setTimeout(() => themeBtnIcon.classList.remove("rotate"), 300);
+
+            if (document.body.classList.contains("dark")) {
+                localStorage.setItem("theme", "dark");
+                themeBtnIcon.classList.remove("fa-sun");
+                themeBtnIcon.classList.add("fa-moon");
+            } else {
+                localStorage.setItem("theme", "light");
+                themeBtnIcon.classList.remove("fa-moon");
+                themeBtnIcon.classList.add("fa-sun");
+            }
+        });
+
+
+
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
+
+        window.addEventListener('scroll', function () {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                // Scroll down → hide navbar
+                navbar.style.top = "-80px"; // navbar ki height ke hisaab se adjust karo
+            } else {
+                // Scroll up → show navbar
+                navbar.style.top = "0";
+            }
+
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // negative scroll avoid
+        });
+
+    </script>
+</body>
+
+</html>
